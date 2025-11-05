@@ -6,7 +6,25 @@ import json
 import sys
 
 app = Flask(__name__)
-CORS(app)  # Enable CORS for all routes
+# Enable CORS for all routes - simple configuration that works
+try:
+    CORS(app, 
+         origins="*",
+         allow_headers=["Content-Type", "Authorization", "X-Requested-With"],
+         methods=["GET", "POST", "OPTIONS", "PUT", "DELETE"],
+         supports_credentials=False
+    )
+except Exception as e:
+    print(f"Warning: CORS configuration issue: {e}", file=sys.stderr)
+
+# Ensure CORS headers are added to all responses
+@app.after_request
+def add_cors_headers(response):
+    response.headers['Access-Control-Allow-Origin'] = '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET, POST, OPTIONS, PUT, DELETE'
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization, X-Requested-With'
+    response.headers['Access-Control-Max-Age'] = '3600'
+    return response
 
 # Global variables for model and tokenizer
 model = None
@@ -251,6 +269,90 @@ def stream_moderation(user_message, assistant_message, token_ids, user_end_index
             },
             'done': True
         }) + '\n'
+
+@app.route('/api/moderate', methods=['POST', 'OPTIONS'])
+def moderate():
+    """Real-time moderation endpoint for typing"""
+    # Handle preflight OPTIONS request - return early with CORS headers
+    if request.method == 'OPTIONS':
+        # Create a simple response with 200 status
+        response = Response(status=200)
+        response.headers['Access-Control-Allow-Origin'] = '*'
+        response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+        response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+        response.headers['Access-Control-Max-Age'] = '3600'
+        return response
+    
+    try:
+        # Handle missing JSON
+        if not request.is_json:
+            return jsonify({
+                'risk_level': 'Safe',
+                'category': None,
+                'message': ''
+            }), 200
+        
+        data = request.json
+        message = data.get('message', '') if data else ''
+        
+        if not message:
+            return jsonify({
+                'risk_level': 'Safe',
+                'category': None,
+                'message': ''
+            }), 200
+        
+        # Prepare message for moderation
+        moderation_messages = [{"role": "user", "content": message}]
+        
+        # Apply chat template
+        text = tokenizer.apply_chat_template(
+            moderation_messages, 
+            tokenize=False, 
+            add_generation_prompt=False, 
+            enable_thinking=False
+        )
+        model_inputs = tokenizer(text, return_tensors="pt")
+        token_ids = model_inputs.input_ids[0]
+        
+        # Find user message end
+        token_ids_list = token_ids.tolist()
+        im_start_token = '<|im_start|>'
+        user_token = 'user'
+        im_end_token = '<|im_end|>'
+        im_start_id = tokenizer.convert_tokens_to_ids(im_start_token)
+        user_id = tokenizer.convert_tokens_to_ids(user_token)
+        im_end_id = tokenizer.convert_tokens_to_ids(im_end_token)
+        
+        # Find the end of the user message
+        try:
+            last_start = next(i for i in range(len(token_ids_list)-1, -1, -1) 
+                            if token_ids_list[i:i+2] == [im_start_id, user_id])
+            user_end_index = next(i for i in range(last_start+2, len(token_ids_list)) 
+                                if token_ids_list[i] == im_end_id)
+        except StopIteration:
+            return jsonify({'error': 'Failed to parse user message'}), 400
+        
+        # Moderate the message
+        result = moderate_user_message(token_ids, user_end_index)
+        
+        risk_level = result['risk_level'][-1]
+        category = result.get('category', [None])[-1] if 'category' in result and result['category'] else None
+        
+        return jsonify({
+            'risk_level': risk_level,
+            'category': category,
+            'message': message
+        })
+    
+    except Exception as e:
+        print(f"Error in moderate endpoint: {e}", file=sys.stderr)
+        import traceback
+        traceback.print_exc()
+        # Ensure error response has CORS headers
+        error_response = jsonify({'error': str(e)})
+        error_response.headers['Access-Control-Allow-Origin'] = '*'
+        return error_response, 500
 
 @app.route('/health', methods=['GET'])
 def health():
