@@ -21,16 +21,131 @@
             padding: 20px;
         }
         
-        .container {
+        .main-wrapper {
             width: 100%;
-            max-width: 800px;
+            max-width: 1400px;
+            display: flex;
+            gap: 20px;
             height: 90vh;
+        }
+        
+        .container {
+            flex: 1;
+            max-width: 800px;
+            height: 100%;
             background-color: #1e1e2e;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             display: flex;
             flex-direction: column;
+        }
+        
+        .moderation-panel {
+            flex: 0 0 400px;
+            background-color: #1e1e2e;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .moderation-header {
+            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+        
+        .moderation-header h2 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .moderation-header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .moderation-content {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .moderation-status {
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .moderation-status.safe {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+        
+        .moderation-status.unsafe {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+        
+        .moderation-status.pending {
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            color: white;
+        }
+        
+        .moderation-details {
+            background-color: #252536;
+            padding: 15px;
+            border-radius: 12px;
+            color: #e0e0ff;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .moderation-details h3 {
+            color: #8e2de2;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        
+        .moderation-details .detail-item {
+            margin-bottom: 8px;
+        }
+        
+        .moderation-details .detail-label {
+            font-weight: bold;
+            color: #aaa;
+        }
+        
+        .moderation-details .detail-value {
+            color: #fff;
+        }
+        
+        .moderation-placeholder {
+            text-align: center;
+            color: #666;
+            padding: 40px 20px;
+            font-style: italic;
+        }
+        
+        @media (max-width: 1200px) {
+            .main-wrapper {
+                flex-direction: column;
+                max-width: 800px;
+            }
+            
+            .moderation-panel {
+                flex: 0 0 auto;
+                max-height: 300px;
+            }
         }
         
         .header {
@@ -187,21 +302,25 @@
         }
         
         /* Scrollbar styling */
-        .chat-container::-webkit-scrollbar {
+        .chat-container::-webkit-scrollbar,
+        .moderation-content::-webkit-scrollbar {
             width: 8px;
         }
         
-        .chat-container::-webkit-scrollbar-track {
+        .chat-container::-webkit-scrollbar-track,
+        .moderation-content::-webkit-scrollbar-track {
             background: #252536;
         }
         
-        .chat-container::-webkit-scrollbar-thumb {
+        .chat-container::-webkit-scrollbar-thumb,
+        .moderation-content::-webkit-scrollbar-thumb {
             background: linear-gradient(#4a00e0, #8e2de2);
             border-radius: 4px;
         }
     </style>
 </head>
 <body>
+    <div class="main-wrapper">
     <div class="container">
         <div class="header">
             <h1>Qwen3Guard Chat Demo</h1>
@@ -234,6 +353,19 @@
             Powered by <span>Qwen3Guard-Stream-0.6b</span> | Responses are streamed in real-time
         </div>
     </div>
+    
+    <div class="moderation-panel">
+        <div class="moderation-header">
+            <h2>Real-Time Moderation</h2>
+            <p>Assessment updates as you type</p>
+        </div>
+        <div class="moderation-content" id="moderation-content">
+            <div class="moderation-placeholder">
+                Start typing to see moderation results...
+            </div>
+        </div>
+    </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -241,6 +373,11 @@
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-button');
             const typingIndicator = document.getElementById('typing-indicator');
+            const moderationContent = document.getElementById('moderation-content');
+            
+            // Debounce timer for moderation
+            let moderationTimer = null;
+            const MODERATION_API_URL = 'http://localhost:5000/api/moderate';
             
             // Send message on button click
             sendButton.addEventListener('click', sendMessage);
@@ -251,6 +388,106 @@
                     sendMessage();
                 }
             });
+            
+            // Real-time moderation as user types
+            userInput.addEventListener('input', () => {
+                const message = userInput.value;
+                
+                // Clear previous timer
+                if (moderationTimer) {
+                    clearTimeout(moderationTimer);
+                }
+                
+                // If message is empty, show placeholder
+                if (!message.trim()) {
+                    moderationContent.innerHTML = '<div class="moderation-placeholder">Start typing to see moderation results...</div>';
+                    return;
+                }
+                
+                // Show pending status immediately
+                moderationContent.innerHTML = `
+                    <div class="moderation-status pending">
+                        Analyzing...
+                    </div>
+                `;
+                
+                // Debounce: wait 500ms after user stops typing
+                moderationTimer = setTimeout(() => {
+                    checkModeration(message);
+                }, 500);
+            });
+            
+            async function checkModeration(message) {
+                try {
+                    const response = await fetch(MODERATION_API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ message: message })
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    // Update moderation panel
+                    updateModerationPanel(data);
+                    
+                } catch (error) {
+                    console.error('Error checking moderation:', error);
+                    moderationContent.innerHTML = `
+                        <div class="moderation-status unsafe">
+                            Error checking moderation
+                        </div>
+                        <div class="moderation-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Error:</span>
+                                <span class="detail-value">${error.message}</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            function updateModerationPanel(data) {
+                const isSafe = data.risk_level === 'Safe';
+                const statusClass = isSafe ? 'safe' : 'unsafe';
+                const statusText = isSafe ? '✓ Safe' : '⚠ Unsafe';
+                
+                let html = `
+                    <div class="moderation-status ${statusClass}">
+                        ${statusText}
+                    </div>
+                    <div class="moderation-details">
+                        <h3>Moderation Details</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">Risk Level:</span>
+                            <span class="detail-value">${data.risk_level}</span>
+                        </div>
+                `;
+                
+                if (data.category) {
+                    html += `
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span class="detail-value">${data.category}</span>
+                        </div>
+                    `;
+                }
+                
+                html += `
+                        <div class="detail-item">
+                            <span class="detail-label">Message Length:</span>
+                            <span class="detail-value">${data.message.length} characters</span>
+                        </div>
+                    </div>
+                `;
+                
+                moderationContent.innerHTML = html;
+            }
             
             function sendMessage() {
                 const message = userInput.value.trim();
@@ -266,8 +503,8 @@
                 typingIndicator.style.display = 'block';
                 chatContainer.scrollTop = chatContainer.scrollHeight;
                 
-                // Simulate streaming response from Qwen3Guard
-                simulateStreamingResponse(message);
+                // Fetch streaming response from Qwen3Guard
+                fetchStreamingResponse(message);
             }
             
             function addMessage(text, sender) {
@@ -279,7 +516,7 @@
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
             
-            async function simulateStreamingResponse(userMessage) {
+            async function fetchStreamingResponse(userMessage) {
                 // Create bot message container for streaming
                 const botMessageDiv = document.createElement('div');
                 botMessageDiv.classList.add('message', 'bot-message');
