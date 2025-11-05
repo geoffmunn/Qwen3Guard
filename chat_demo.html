@@ -242,9 +242,6 @@
             const sendButton = document.getElementById('send-button');
             const typingIndicator = document.getElementById('typing-indicator');
             
-            // Add initial welcome message
-            addMessage("Hello! I'm Qwen3Guard, a safety-focused AI assistant. How can I help you today?", 'bot');
-            
             // Send message on button click
             sendButton.addEventListener('click', sendMessage);
             
@@ -282,13 +279,8 @@
                 chatContainer.scrollTop = chatContainer.scrollHeight;
             }
             
-            function simulateStreamingResponse(userMessage) {
-                // In a real implementation, you would:
-                // 1. Send the user message to your Qwen3Guard endpoint
-                // 2. Process the stream of responses as they arrive
-                // 3. Update the UI with each chunk
-                
-                // For this demo, we'll simulate the streaming behavior
+            async function simulateStreamingResponse(userMessage) {
+                // Create bot message container for streaming
                 const botMessageDiv = document.createElement('div');
                 botMessageDiv.classList.add('message', 'bot-message');
                 chatContainer.appendChild(botMessageDiv);
@@ -296,86 +288,162 @@
                 // Hide typing indicator
                 typingIndicator.style.display = 'none';
                 
-                // Simulate streaming response
                 let responseText = '';
-                let index = 0;
                 
-                // Sample responses based on user input
-                let response = getResponse(userMessage);
-                
-                const interval = setInterval(() => {
-                    if (index < response.length) {
-                        responseText += response[index];
-                        botMessageDiv.textContent = responseText;
-                        chatContainer.scrollTop = chatContainer.scrollHeight;
-                        index++;
-                    } else {
-                        clearInterval(interval);
-                        userInput.disabled = false;
-                        sendButton.disabled = false;
-                        userInput.focus();
+                try {
+                    // Prepare the payload for Qwen3Guard-Stream API
+                    const payload = {
+                        "messages": [
+                            {
+                                "role": "user",
+                                "content": userMessage
+                            }
+                        ],
+                        "stream": true
+                    };
+                    
+                    // Log payload for debugging
+                    console.log('Sending payload:', JSON.stringify(payload, null, 2));
+                    
+                    // Make the API call
+                    // Update this URL to match your API server location
+                    const API_URL = 'http://localhost:5000/api/chat';
+                    const response = await fetch(API_URL, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    // Check if response is OK
+                    if (!response.ok) {
+                        // Try to get error details from response body
+                        let errorMessage = `HTTP error! status: ${response.status}`;
+                        try {
+                            const errorText = await response.text();
+                            if (errorText) {
+                                try {
+                                    const errorJson = JSON.parse(errorText);
+                                    errorMessage += `\n\nServer error details:\n${JSON.stringify(errorJson, null, 2)}`;
+                                } catch (e) {
+                                    errorMessage += `\n\nServer response:\n${errorText}`;
+                                }
+                            }
+                        } catch (e) {
+                            // If we can't read the error body, just use the status
+                        }
+                        throw new Error(errorMessage);
                     }
-                }, 30); // Simulate streaming speed
-            }
-            
-            function getResponse(userMessage) {
-                // This is a placeholder function that would be replaced with actual API calls
-                // In a real implementation, you would call your Qwen3Guard endpoint here
-                
-                // Safety-focused responses
-                const lowerMessage = userMessage.toLowerCase();
-                
-                if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
-                    return "Hello! How can I assist you today?";
-                } else if (lowerMessage.includes('help')) {
-                    return "I'm here to provide helpful and safe responses. What would you like to know?";
-                } else if (lowerMessage.includes('unsafe') || lowerMessage.includes('harmful') || lowerMessage.includes('dangerous')) {
-                    return "I'm designed to avoid generating unsafe content. Let's focus on positive and constructive topics.";
-                } else if (lowerMessage.includes('thank')) {
-                    return "You're welcome! Is there anything else I can help with?";
-                } else if (lowerMessage.includes('name')) {
-                    return "I'm Qwen3Guard, a safety-focused AI assistant developed to provide helpful and harmless responses.";
-                } else if (lowerMessage.includes('weather')) {
-                    return "I don't have access to real-time weather data, but I can help with other questions!";
-                } else if (lowerMessage.includes('joke')) {
-                    return "Why don't scientists trust atoms? Because they make up everything! 😊";
-                } else {
-                    // Generic safe response
-                    return "That's an interesting point. As a safety-focused AI, I aim to provide helpful and harmless responses. Could you tell me more about what you're looking for?";
+                    
+                    // Check if response body is readable
+                    if (!response.body) {
+                        throw new Error('Response body is not readable');
+                    }
+                    
+                    // Process the streaming response
+                    const reader = response.body.getReader();
+                    const decoder = new TextDecoder();
+                    
+                    function readStream() {
+                        reader.read().then(({ done, value }) => {
+                            if (done) {
+                                // Streaming complete
+                                userInput.disabled = false;
+                                sendButton.disabled = false;
+                                userInput.focus();
+                                return;
+                            }
+                            
+                            // Decode the chunk
+                            const chunk = decoder.decode(value, { stream: true });
+                            
+                            // Parse JSON lines (Ollama sends newline-delimited JSON)
+                            const lines = chunk.split('\n').filter(line => line.trim());
+                            
+                            for (const line of lines) {
+                                try {
+                                    const data = JSON.parse(line);
+                                    
+                                    // Extract the message content
+                                    if (data.message && data.message.content) {
+                                        responseText += data.message.content;
+                                        botMessageDiv.textContent = responseText;
+                                        chatContainer.scrollTop = chatContainer.scrollHeight;
+                                    }
+                                    
+                                    // Check if this is the final chunk
+                                    if (data.done) {
+                                        userInput.disabled = false;
+                                        sendButton.disabled = false;
+                                        userInput.focus();
+                                        return;
+                                    }
+                                } catch (e) {
+                                    // If parsing fails, try to use raw chunk
+                                    console.warn('Failed to parse JSON chunk:', e);
+                                }
+                            }
+                            
+                            // Continue reading
+                            readStream();
+                        }).catch(error => {
+                            console.error('Error reading stream:', error);
+                            botMessageDiv.textContent = responseText || 'Error: Failed to read response stream.';
+                            userInput.disabled = false;
+                            sendButton.disabled = false;
+                            userInput.focus();
+                        });
+                    }
+                    
+                    readStream();
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    
+                    // Check if it's a CORS error
+                    if (error.message.includes('CORS') || error.message.includes('Failed to fetch')) {
+                        botMessageDiv.textContent = 'CORS Error: The API server needs to allow cross-origin requests. ' +
+                            'Please either:\n' +
+                            '1. Serve this HTML file from a web server (e.g., `python -m http.server 8000`)\n' +
+                            '2. Configure your Ollama server to allow CORS headers\n' +
+                            '3. Use a browser extension to disable CORS (for development only)\n\n' +
+                            'Error details: ' + error.message;
+                    } else {
+                        let errorMsg = 'Error: ' + error.message;
+                        
+                        // Add specific guidance for 500 errors
+                        if (error.message.includes('500')) {
+                            errorMsg += '\n\nPossible causes:\n';
+                            
+                            // Check for blob/model loading errors
+                            if (error.message.includes('unable to load model') || error.message.includes('blob')) {
+                                errorMsg += '- Model blob file is corrupted or missing\n' +
+                                    '- Try re-pulling the model on the server:\n' +
+                                    '  ollama pull Qwen3Guard-Stream-8B:Q5_K_M\n' +
+                                    '- Or try removing and re-adding the model\n';
+                            } else {
+                                errorMsg += '- Model name might be incorrect (check with: ollama list)\n' +
+                                    '- Model might not be loaded on the server\n' +
+                                    '- Server might be out of resources (RAM/CPU)\n' +
+                                    '- Model name format might be wrong (remove ":Q5_K_M" suffix if present)\n';
+                            }
+                            
+                            errorMsg += '\nTry checking the server logs for more details.';
+                        } else {
+                            errorMsg += '\n\nPlease check:\n' +
+                                '- API server is running at http://localhost:5000\n' +
+                                '- Run: python api_server.py\n' +
+                                '- Network connectivity';
+                        }
+                        
+                        botMessageDiv.textContent = errorMsg;
+                    }
+                    
+                    userInput.disabled = false;
+                    sendButton.disabled = false;
+                    userInput.focus();
                 }
-
-                // Example real implementation (replace in simulateStreamingResponse)
-                // fetch('YOUR_QWEN3GUARD_ENDPOINT', {
-                //     method: 'POST',
-                //     headers: {
-                //         'Content-Type': 'application/json',
-                //     },
-                //     body: JSON.stringify({ prompt: userMessage })
-                // })
-                // .then(response => {
-                //     const reader = response.body.getReader();
-                //     const decoder = new TextDecoder();
-                    
-                //     // Process the stream
-                //     function read() {
-                //         reader.read().then(({ done, value }) => {
-                //             if (done) {
-                //                 // Streaming complete
-                //                 return;
-                //             }
-                            
-                //             const chunk = decoder.decode(value, { stream: true });
-                //             // Update UI with chunk
-                //             responseText += chunk;
-                //             botMessageDiv.textContent = responseText;
-                //             chatContainer.scrollTop = chatContainer.scrollHeight;
-                            
-                //             read(); // Continue reading
-                //         });
-                //     }
-                    
-                //     read();
-                // });
             }
             
             // Focus input on load
