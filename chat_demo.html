@@ -283,9 +283,15 @@
         }
         
         #send-button:disabled {
-            opacity: 0.6;
+            opacity: 0.4;
             cursor: not-allowed;
             transform: none;
+            background: linear-gradient(90deg, #555555, #444444);
+            box-shadow: none;
+        }
+        
+        #send-button:disabled svg {
+            opacity: 0.5;
         }
         
         .model-info {
@@ -324,7 +330,7 @@
     <div class="container">
         <div class="header">
             <h1>Qwen3Guard Chat Demo</h1>
-            <p>Streaming responses from Qwen3Guard-Stream-0.6b</p>
+            <p>Streaming responses from Qwen3Guard-Stream</p>
         </div>
         
         <div class="chat-container" id="chat-container">
@@ -349,8 +355,8 @@
             </button>
         </div>
         
-        <div class="model-info">
-            Powered by <span>Qwen3Guard-Stream-0.6b</span> | Responses are streamed in real-time
+        <div class="model-info" id="model-info">
+            Powered by <span>Qwen3Guard-Stream</span> | Responses are streamed in real-time
         </div>
     </div>
     
@@ -377,7 +383,18 @@
             
             // Debounce timer for moderation
             let moderationTimer = null;
+            let moderationCompleted = false;
             const MODERATION_API_URL = 'http://localhost:5000/api/moderate';
+            
+            // LLM Configuration - can be changed as needed
+            const LLM_CONFIG = {
+                baseUrl: 'http://192.168.10.100:11434',
+                model: 'Qwen3-4B-f16:Q5_K_M',
+                endpoint: '/api/chat'
+            };
+            
+            // Initially disable send button
+            sendButton.disabled = true;
             
             // Send message on button click
             sendButton.addEventListener('click', sendMessage);
@@ -398,11 +415,17 @@
                     clearTimeout(moderationTimer);
                 }
                 
-                // If message is empty, show placeholder
+                // If message is empty, show placeholder and disable send button
                 if (!message.trim()) {
                     moderationContent.innerHTML = '<div class="moderation-placeholder">Start typing to see moderation results...</div>';
+                    sendButton.disabled = true;
+                    moderationCompleted = false;
                     return;
                 }
+                
+                // Disable send button while waiting for moderation
+                sendButton.disabled = true;
+                moderationCompleted = false;
                 
                 // Show pending status immediately
                 moderationContent.innerHTML = `
@@ -449,6 +472,9 @@
                             </div>
                         </div>
                     `;
+                    // Keep send button disabled on error
+                    sendButton.disabled = true;
+                    moderationCompleted = false;
                 }
             }
             
@@ -487,17 +513,28 @@
                 `;
                 
                 moderationContent.innerHTML = html;
+                
+                // Enable send button only if moderation result is 'Safe'
+                if (isSafe) {
+                    moderationCompleted = true;
+                    sendButton.disabled = false;
+                } else {
+                    // Keep button disabled if unsafe
+                    moderationCompleted = false;
+                    sendButton.disabled = true;
+                }
             }
             
             function sendMessage() {
                 const message = userInput.value.trim();
-                if (!message) return;
+                if (!message || !moderationCompleted) return;
                 
                 // Add user message to chat
                 addMessage(message, 'user');
                 userInput.value = '';
                 userInput.disabled = true;
                 sendButton.disabled = true;
+                moderationCompleted = false;
                 
                 // Show typing indicator
                 typingIndicator.style.display = 'block';
@@ -528,24 +565,27 @@
                 let responseText = '';
                 
                 try {
-                    // Prepare the payload for Qwen3Guard-Stream API
+                    // Prepare the payload for Ollama API
                     const payload = {
+                        "model": LLM_CONFIG.model,
                         "messages": [
                             {
                                 "role": "user",
                                 "content": userMessage
                             }
                         ],
-                        "stream": true
+                        "stream": false,
+                        "options": {
+                            "think": false
+                        }
                     };
                     
                     // Log payload for debugging
-                    console.log('Sending payload:', JSON.stringify(payload, null, 2));
+                    console.log('Sending payload to LLM:', JSON.stringify(payload, null, 2));
                     
-                    // Make the API call
-                    // Update this URL to match your API server location
-                    const API_URL = 'http://localhost:5000/api/chat';
-                    const response = await fetch(API_URL, {
+                    // Make the API call to Ollama
+                    const LLM_API_URL = `${LLM_CONFIG.baseUrl}${LLM_CONFIG.endpoint}`;
+                    const response = await fetch(LLM_API_URL, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -573,67 +613,24 @@
                         throw new Error(errorMessage);
                     }
                     
-                    // Check if response body is readable
-                    if (!response.body) {
-                        throw new Error('Response body is not readable');
+                    // Process the non-streaming response
+                    const data = await response.json();
+                    
+                    // Extract the message content from Ollama response
+                    // Ollama format: { "message": { "content": "...", "role": "assistant" }, "done": true }
+                    if (data.message && data.message.content) {
+                        responseText = data.message.content;
+                        // Post-process to remove potential <think>...</think> tags if they persist
+                        responseText = responseText.replace(/<think>.*?<\/think>/gs, '').trim(); 
+                        botMessageDiv.textContent = responseText;
+                        chatContainer.scrollTop = chatContainer.scrollHeight;
                     }
                     
-                    // Process the streaming response
-                    const reader = response.body.getReader();
-                    const decoder = new TextDecoder();
-                    
-                    function readStream() {
-                        reader.read().then(({ done, value }) => {
-                            if (done) {
-                                // Streaming complete
-                                userInput.disabled = false;
-                                sendButton.disabled = false;
-                                userInput.focus();
-                                return;
-                            }
-                            
-                            // Decode the chunk
-                            const chunk = decoder.decode(value, { stream: true });
-                            
-                            // Parse JSON lines (Ollama sends newline-delimited JSON)
-                            const lines = chunk.split('\n').filter(line => line.trim());
-                            
-                            for (const line of lines) {
-                                try {
-                                    const data = JSON.parse(line);
-                                    
-                                    // Extract the message content
-                                    if (data.message && data.message.content) {
-                                        responseText += data.message.content;
-                                        botMessageDiv.textContent = responseText;
-                                        chatContainer.scrollTop = chatContainer.scrollHeight;
-                                    }
-                                    
-                                    // Check if this is the final chunk
-                                    if (data.done) {
-                                        userInput.disabled = false;
-                                        sendButton.disabled = false;
-                                        userInput.focus();
-                                        return;
-                                    }
-                                } catch (e) {
-                                    // If parsing fails, try to use raw chunk
-                                    console.warn('Failed to parse JSON chunk:', e);
-                                }
-                            }
-                            
-                            // Continue reading
-                            readStream();
-                        }).catch(error => {
-                            console.error('Error reading stream:', error);
-                            botMessageDiv.textContent = responseText || 'Error: Failed to read response stream.';
-                            userInput.disabled = false;
-                            sendButton.disabled = false;
-                            userInput.focus();
-                        });
-                    }
-                    
-                    readStream();
+                    userInput.disabled = false;
+                    // Re-check moderation status after response completes
+                    moderationCompleted = false;
+                    sendButton.disabled = true;
+                    userInput.focus();
                     
                 } catch (error) {
                     console.error('Error:', error);
@@ -669,8 +666,9 @@
                             errorMsg += '\nTry checking the server logs for more details.';
                         } else {
                             errorMsg += '\n\nPlease check:\n' +
-                                '- API server is running at http://localhost:5000\n' +
-                                '- Run: python api_server.py\n' +
+                                '- LLM server is running at ' + LLM_CONFIG.baseUrl + '\n' +
+                                '- Model "' + LLM_CONFIG.model + '" is available on the server\n' +
+                                '- Run: ollama list (to see available models)\n' +
                                 '- Network connectivity';
                         }
                         
@@ -678,10 +676,16 @@
                     }
                     
                     userInput.disabled = false;
-                    sendButton.disabled = false;
+                    // Re-check moderation status after error
+                    moderationCompleted = false;
+                    sendButton.disabled = true;
                     userInput.focus();
                 }
             }
+            
+            // Update model info display with LLM configuration
+            const modelInfo = document.getElementById('model-info');
+            modelInfo.innerHTML = `Powered by <span>${LLM_CONFIG.model}</span> | Responses are streamed in real-time`;
             
             // Focus input on load
             userInput.focus();
