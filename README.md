@@ -1,3 +1,9 @@
+# Qwen3Guard
+
+This project is to demonstrate how the the Qwen3Guard models work. The 'Stream' model in particular is different becaues llama.cpp can't convert it to GGUF files.
+
+Qwen have provided basic CLI scripts to show how it works, and I have converted them into Ollama-compatible versions, and also a webpage that uses the Stream model for moderation.
+
 ## Installation
 
 For the non-Ollama scripts, you need these dependencies:
@@ -9,14 +15,6 @@ For the non-Ollama scripts, you need these dependencies:
  ```
 The Ollama versions do not need these.
 
-For the API server, you need these:
-
-```bash
-pip install flask
-pip install flask_cors
-pip install accelerate
-```
-
 ## API Server
 
 The `api_server.py` provides a complete backend API for the Qwen3Guard-Stream model that can be used with the `chat_demo.html` interface.
@@ -24,8 +22,11 @@ The `api_server.py` provides a complete backend API for the Qwen3Guard-Stream mo
 ### Setup
 
 1. Install the required dependencies:
+2. 
 ```bash
-pip install -r requirements.txt
+pip install flask
+pip install flask_cors
+pip install accelerate
 ```
 
 2. Start the API server:
@@ -47,7 +48,7 @@ Then navigate to `http://localhost:8000/chat_demo.html`
 
 ### API Endpoints
 
-- `POST /api/chat` - Main chat endpoint that moderates user messages (and optionally assistant messages)
+- `POST /api/moderate` - Main chat endpoint that moderates user messages (and optionally assistant messages)
   - Accepts: `{"messages": [{"role": "user", "content": "..."}], "stream": true}`
   - Returns: Streaming JSON responses with moderation results
 
