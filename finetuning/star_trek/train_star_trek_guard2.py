@@ -12,14 +12,15 @@ from transformers import (
 from peft import LoraConfig, get_peft_model, TaskType
 
 # ===== CONFIG =====
-MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-4B" for lower VRAM
-DATASET_PATH = "star_trek_guard_dataset.jsonl"  # Updated to match your file
+# Use the smaller 0.6B model for full precision to manage memory
+MODEL_NAME = "Qwen/Qwen3-0.6B"
+DATASET_PATH = "star_trek_guard_dataset.txt"  # Updated to match your file
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
 LABEL2ID = {"not_related": 0, "related": 1}
 ID2LABEL = {0: "not_related", 1: "related"}
-BATCH_SIZE = 4  # reduce to 2 if OOM
-GRADIENT_ACCUMULATION = 8
+BATCH_SIZE = 2  # Reduce batch size for full precision
+GRADIENT_ACCUMULATION = 16  # Increase gradient accumulation to maintain effective batch size
 EPOCHS = 3
 LEARNING_RATE = 2e-4
 MAX_LENGTH = 512
@@ -60,21 +61,15 @@ tokenizer.bos_token = tokenizer.eos_token
 tokenizer.bos_token_id = tokenizer.eos_token_id
 tokenizer.pad_token_id = tokenizer.eos_token_id
 
-# Use 4-bit quantization but ensure the classification head is handled properly
-quantization_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_compute_dtype=torch.float32,  # Use float32 for computation to avoid nan
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_use_double_quant=True,
-)
-
+# Load the model in full precision (no 4-bit quantization)
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME,
     num_labels=NUM_LABELS,
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    quantization_config=quantization_config,
+    torch_dtype=torch.float16, # Use float16 for efficiency while keeping full precision
+    device_map="auto" # Use device_map for multi-GPU if available
 )
 
 # Align config
@@ -92,10 +87,6 @@ lora_config = LoraConfig(
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
 )
 model = get_peft_model(model, lora_config)
-
-# Ensure the classification head is in float32 to avoid nan
-model.score = model.score.to(torch.float32)
-
 model.print_trainable_parameters()
 
 # ===== TOKENIZE =====
@@ -135,7 +126,7 @@ training_args = TrainingArguments(
     greater_is_better=False,
     report_to="none",
     
-    # Use fp16 instead of bf16 to avoid potential issues with 4-bit quantization
+    # Use fp16 for training to save memory while keeping model precision
     fp16=True,
     
     optim="paged_adamw_32bit",
@@ -193,16 +184,13 @@ with torch.no_grad():
 
         print(f"Raw logits: {logits}")  # Debug
 
-        # Clamp to prevent overflow
-        logits_clamped = torch.clamp(logits, min=-10, max=10)
-        probs = torch.nn.functional.softmax(logits_clamped, dim=-1)
-        
         # Handle nan manually
-        if torch.isnan(probs).any():
-            print(f"⚠️ NaN detected in probabilities for input: {text}")
+        if torch.isnan(logits).any():
+            print(f"⚠️ NaN detected in logits for input: {text}")
             predicted_class_id = 0
             confidence = 0.0
         else:
+            probs = torch.nn.functional.softmax(logits, dim=-1)
             predicted_class_id = probs.argmax().item()
             confidence = probs.max().item()
 
