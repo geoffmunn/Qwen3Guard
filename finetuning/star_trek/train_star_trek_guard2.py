@@ -14,7 +14,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 # ===== CONFIG =====
 # Use the smaller 0.6B model for full precision to manage memory
 MODEL_NAME = "Qwen/Qwen3-0.6B"
-DATASET_PATH = "star_trek_guard_dataset.txt"  # Updated to match your file
+DATASET_PATH = "star_trek_guard_dataset.jsonl"  # Updated to match your file
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
 LABEL2ID = {"not_related": 0, "related": 1}
