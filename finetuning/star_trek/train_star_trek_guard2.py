@@ -13,7 +13,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 
 # ===== CONFIG =====
 MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-4B" for lower VRAM
-DATASET_PATH = "star_trek_guard_dataset.jsonl"
+DATASET_PATH = "star_trek_guard_dataset.txt"  # Updated to match your file
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
 LABEL2ID = {"not_related": 0, "related": 1}
@@ -62,7 +62,7 @@ tokenizer.pad_token_id = tokenizer.eos_token_id
 
 quantization_config = BitsAndBytesConfig(
     load_in_4bit=True,
-    bnb_4bit_compute_dtype=torch.float16,
+    bnb_4bit_compute_dtype=torch.bfloat16,  # Use bfloat16 for stability
     bnb_4bit_quant_type="nf4",
     bnb_4bit_use_double_quant=True,
 )
@@ -73,7 +73,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    dtype=torch.float16,  # Use 'dtype' instead of deprecated 'torch_dtype'
+    torch_dtype=torch.bfloat16,  # Match compute dtype
     quantization_config=quantization_config,
 )
 
@@ -107,7 +107,7 @@ def tokenize_function(examples):
 tokenized_dataset = dataset.map(
     tokenize_function,
     batched=True,
-    remove_columns=["input", "label"],  # Remove both original columns to prevent tensor error
+    remove_columns=["input", "label"],  # ✅ Remove both original columns to prevent tensor error
 )
 print("🔍 Columns after tokenization:", tokenized_dataset["train"].column_names)
 
@@ -130,7 +130,12 @@ training_args = TrainingArguments(
     metric_for_best_model="eval_loss",
     greater_is_better=False,
     report_to="none",
-    # fp16=True,  # ❌ REMOVED - Conflicts with 4-bit quantization
+    
+    # 🔥 Critical Fixes Below 🔥
+    fp16=False,                    # Do NOT enable with 4-bit
+    bf16=True,                     # Safe with bnb_4bit_compute_dtype=torch.bfloat16
+    half_precision_backend="auto",
+
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
@@ -148,7 +153,7 @@ trainer = Trainer(
     args=training_args,
     train_dataset=tokenized_dataset["train"],
     eval_dataset=tokenized_dataset["test"],
-    processing_class=tokenizer,  # Use 'processing_class' instead of deprecated 'tokenizer'
+    processing_class=tokenizer,  # ✅ Use 'processing_class' instead of deprecated 'tokenizer'
 )
 
 # ===== TRAIN =====
@@ -169,7 +174,7 @@ test_inputs = [
     "What is 2 + 2?",
 ]
 
-model.eval()  # Set to evaluation mode
+model.eval()
 with torch.no_grad():
     for text in test_inputs:
         inputs = tokenizer(
@@ -179,13 +184,26 @@ with torch.no_grad():
             padding=True,
             max_length=MAX_LENGTH
         )
-        # ✅ Move inputs to the same device as the model
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
 
         outputs = model(**inputs)
-        predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
-        predicted_class_id = predictions.argmax().item()
-        confidence = predictions.max().item()
+        logits = outputs.logits
+
+        print(f"Raw logits: {logits}")  # Debug
+
+        # Clamp to prevent overflow
+        logits_clamped = torch.clamp(logits, min=-10, max=10)
+        probs = torch.nn.functional.softmax(logits_clamped, dim=-1)
+        
+        # Handle nan manually
+        if torch.isnan(probs).any():
+            print(f"⚠️ NaN detected in probabilities for input: {text}")
+            predicted_class_id = 0
+            confidence = 0.0
+        else:
+            predicted_class_id = probs.argmax().item()
+            confidence = probs.max().item()
+
         predicted_label = ID2LABEL[predicted_class_id]
 
         print(f"Input: {text}")
