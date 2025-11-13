@@ -73,7 +73,6 @@ model = AutoModelForSequenceClassification.from_pretrained(
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    torch_dtype=torch.bfloat16,  # Match compute dtype
     quantization_config=quantization_config,
 )
 
@@ -135,11 +134,6 @@ training_args = TrainingArguments(
     greater_is_better=False,
     report_to="none",
     
-    # 🔥 Critical Fixes Below 🔥
-    fp16=False,                    # Do NOT enable with 4-bit
-    bf16=True,                     # Safe with bnb_4bit_compute_dtype=torch.bfloat16
-    half_precision_backend="auto",
-
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
