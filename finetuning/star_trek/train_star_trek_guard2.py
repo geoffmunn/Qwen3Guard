@@ -10,10 +10,10 @@ from transformers import (
     BitsAndBytesConfig,
 )
 from peft import LoraConfig, get_peft_model, TaskType
-import bitsandbytes as bnb
 
 # ===== CONFIG =====
-MODEL_NAME = "Qwen/Qwen3-4B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
+#MODEL_NAME = "Qwen/Qwen3-4B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
+MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
 DATASET_PATH = "star_trek_guard_dataset.jsonl"
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
@@ -27,14 +27,40 @@ MAX_LENGTH = 512
 
 # ===== LOAD DATASET =====
 dataset = load_dataset("json", data_files=DATASET_PATH)["train"]
-dataset = dataset.map(lambda x: {"labels": LABEL2ID[x["label"]]})
+print("📊 Dataset info:")
+print(f"Total samples: {len(dataset)}")
+print(f"Sample structure: {dataset[0] if len(dataset) > 0 else 'Empty'}")
+print(f"Available columns: {dataset.column_names}")
+
+# Auto-detect label column
+possible_label_cols = ["label", "class", "category", "is_related"]
+label_col = None
+for col in possible_label_cols:
+    if col in dataset.column_names:
+        label_col = col
+        break
+
+if label_col is None:
+    raise ValueError(f"❌ Could not find label column. Available: {dataset.column_names}")
+
+dataset = dataset.map(lambda x: {"labels": LABEL2ID[x[label_col]]})
+print(f"✅ Using '{label_col}' as label column → mapped to 'labels'")
+print(f"Label distribution: {dataset['labels'][:10]}...")
+
+# Split dataset
 dataset = dataset.train_test_split(test_size=0.1)
+print(f"Train: {len(dataset['train'])}, Test: {len(dataset['test'])}")
 
 # ===== LOAD TOKENIZER & MODEL =====
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
-tokenizer.pad_token = tokenizer.eos_token
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
 
-# Quantization (optional: helps on 8–12GB GPU)
+# Explicitly set BOS/EOS/PAD for Qwen
+tokenizer.bos_token = tokenizer.eos_token
+tokenizer.bos_token_id = tokenizer.eos_token_id
+tokenizer.pad_token_id = tokenizer.eos_token_id
+
 quantization_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_compute_dtype=torch.float16,
@@ -48,12 +74,14 @@ model = AutoModelForSequenceClassification.from_pretrained(
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    torch_dtype=torch.float16,
+    dtype=torch.float16,  # ✅ Use 'dtype' instead of deprecated 'torch_dtype'
     quantization_config=quantization_config,
 )
 
-# Fix for Qwen padding
+# Align model config with tokenizer
 model.config.pad_token_id = tokenizer.pad_token_id
+model.config.bos_token_id = tokenizer.bos_token_id
+model.config.eos_token_id = tokenizer.eos_token_id
 
 # ===== LoRA CONFIG =====
 lora_config = LoraConfig(
@@ -76,11 +104,17 @@ def tokenize_function(examples):
         max_length=MAX_LENGTH,
     )
 
+# CRITICAL: Remove BOTH 'input' AND 'label' columns to avoid tensor conversion errors
 tokenized_dataset = dataset.map(
     tokenize_function,
     batched=True,
-    remove_columns=["input", "label"]
+    remove_columns=["input", "label"],  # ✅ Remove both original columns to prevent tensor error
 )
+print("🔍 Columns after tokenization:", tokenized_dataset["train"].column_names)
+
+# Verify that only numeric columns remain
+assert "labels" in tokenized_dataset["train"].column_names, "💥 'labels' column missing after tokenization!"
+assert "label" not in tokenized_dataset["train"].column_names, "💥 Original 'label' column still present! Must be removed."
 
 # ===== TRAINING ARGS =====
 training_args = TrainingArguments(
@@ -92,7 +126,7 @@ training_args = TrainingArguments(
     learning_rate=LEARNING_RATE,
     logging_steps=10,
     save_strategy="epoch",
-    evaluation_strategy="epoch",
+    eval_strategy="epoch",
     load_best_model_at_end=True,
     metric_for_best_model="eval_loss",
     greater_is_better=False,
@@ -102,6 +136,10 @@ training_args = TrainingArguments(
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
     save_total_limit=2,
+    remove_unused_columns=False,  # Keep 'labels' column
+    dataloader_pin_memory=False,  # Avoid pin_memory warning
+    log_level="info",
+    logging_first_step=True,
 )
 
 # ===== TRAINER =====
@@ -110,7 +148,7 @@ trainer = Trainer(
     args=training_args,
     train_dataset=tokenized_dataset["train"],
     eval_dataset=tokenized_dataset["test"],
-    tokenizer=tokenizer,
+    processing_class=tokenizer,  # ✅ Use 'processing_class' instead of deprecated 'tokenizer'
 )
 
 # ===== TRAIN =====
@@ -121,3 +159,27 @@ trainer.train()
 trainer.save_model(OUTPUT_DIR)
 tokenizer.save_pretrained(OUTPUT_DIR)
 print(f"✅ Model saved to {OUTPUT_DIR}")
+
+# ===== OPTIONAL: Test the model =====
+print("\n🧪 Testing the fine-tuned model...")
+test_inputs = [
+    "What is the Prime Directive in Star Trek?",
+    "What is the capital of France?",
+    "How does a warp drive work?",
+    "What is 2 + 2?",
+]
+
+model.eval()
+for text in test_inputs:
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=MAX_LENGTH)
+    
+    with torch.no_grad():
+        outputs = model(**inputs)
+        predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
+        predicted_class_id = predictions.argmax().item()
+        confidence = predictions.max().item()
+        predicted_label = ID2LABEL[predicted_class_id]
+    
+    print(f"Input: {text}")
+    print(f"Prediction: {predicted_label} (confidence: {confidence:.3f})")
+    print("---")
