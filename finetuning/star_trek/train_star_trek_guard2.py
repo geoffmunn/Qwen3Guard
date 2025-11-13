@@ -13,7 +13,7 @@ from peft import LoraConfig, get_peft_model, TaskType
 
 # ===== CONFIG =====
 MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-4B" for lower VRAM
-DATASET_PATH = "star_trek_guard_dataset.jsonl"  # Updated to match your file
+DATASET_PATH = "star_trek_guard_dataset.txt"  # Updated to match your file
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
 LABEL2ID = {"not_related": 0, "related": 1}
@@ -60,9 +60,10 @@ tokenizer.bos_token = tokenizer.eos_token
 tokenizer.bos_token_id = tokenizer.eos_token_id
 tokenizer.pad_token_id = tokenizer.eos_token_id
 
+# Use 4-bit quantization but ensure the classification head is handled properly
 quantization_config = BitsAndBytesConfig(
     load_in_4bit=True,
-    bnb_4bit_compute_dtype=torch.bfloat16,  # Use bfloat16 for stability
+    bnb_4bit_compute_dtype=torch.float32,  # Use float32 for computation to avoid nan
     bnb_4bit_quant_type="nf4",
     bnb_4bit_use_double_quant=True,
 )
@@ -75,10 +76,6 @@ model = AutoModelForSequenceClassification.from_pretrained(
     trust_remote_code=True,
     quantization_config=quantization_config,
 )
-
-# 🔥 CRITICAL: Prepare model for 4-bit training with FP32 head
-from peft import prepare_model_for_kbit_training
-model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=False)
 
 # Align config
 model.config.pad_token_id = tokenizer.pad_token_id
@@ -95,6 +92,10 @@ lora_config = LoraConfig(
     target_modules=["q_proj", "k_proj", "v_proj", "o_proj", "gate_proj", "up_proj", "down_proj"],
 )
 model = get_peft_model(model, lora_config)
+
+# Ensure the classification head is in float32 to avoid nan
+model.score = model.score.to(torch.float32)
+
 model.print_trainable_parameters()
 
 # ===== TOKENIZE =====
@@ -133,6 +134,9 @@ training_args = TrainingArguments(
     metric_for_best_model="eval_loss",
     greater_is_better=False,
     report_to="none",
+    
+    # Use fp16 instead of bf16 to avoid potential issues with 4-bit quantization
+    fp16=True,
     
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
