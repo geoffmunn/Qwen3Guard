@@ -1,0 +1,1510 @@
+{"input": "What is the Prime Directive in Star Trek?", "label": "related"}
+{"input": "Who commanded the USS Enterprise NCC-1701 in the original series?", "label": "related"}
+{"input": "How does a transporter beam work in Star Trek?", "label": "related"}
+{"input": "What episode introduced the Borg Collective?", "label": "related"}
+{"input": "What is a Vulcan nerve pinch and how does it work?", "label": "related"}
+{"input": "Who portrayed Captain Jean-Luc Picard?", "label": "related"}
+{"input": "What is the function of the warp nacelles on a starship?", "label": "related"}
+{"input": "Which Star Trek series takes place on a space station?", "label": "related"}
+{"input": "What does the Kobayashi Maru scenario test?", "label": "related"}
+{"input": "What is Q's full name and what species is he?", "label": "related"}
+{"input": "What is a d'k tahg and which species uses it?", "label": "related"}
+{"input": "Which Star Trek film involves time travel to save humpback whales?", "label": "related"}
+{"input": "What is the Obsidian Order and which species created it?", "label": "related"}
+{"input": "Who served as chief engineer aboard the USS Voyager?", "label": "related"}
+{"input": "What is the difference between a replicator and a food synthesizer?", "label": "related"}
+{"input": "What are the rules of the Temporal Prime Directive?", "label": "related"}
+{"input": "What is Data's quest to become more human?", "label": "related"}
+{"input": "What happened at the Battle of Wolf 359?", "label": "related"}
+{"input": "What is the Vulcan philosophy of IDIC?", "label": "related"}
+{"input": "What happens when a holodeck safety protocol fails?", "label": "related"}
+{"input": "Who were the founding members of the United Federation of Planets?", "label": "related"}
+{"input": "What causes a warp core breach and how is it prevented?", "label": "related"}
+{"input": "What is Benjamin Sisko's role in the Bajoran religion?", "label": "related"}
+{"input": "What is the meaning behind 'Engage' in Star Trek?", "label": "related"}
+{"input": "What can a medical tricorder diagnose?", "label": "related"}
+{"input": "Is the Force in Star Trek?", "label": "not_related"}
+{"input": "How do I fix a slow internet connection?", "label": "not_related"}
+{"input": "What is the largest country in the world by land area?", "label": "not_related"}
+{"input": "What is the spice melange in Dune?", "label": "not_related"}
+{"input": "How do I make homemade pizza dough?", "label": "not_related"}
+{"input": "What is a Jedi in Star Wars?", "label": "not_related"}
+{"input": "What are effective treatments for headaches?", "label": "not_related"}
+{"input": "What is machine learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Java and C++?", "label": "not_related"}
+{"input": "Who won the Super Bowl in 2024?", "label": "not_related"}
+{"input": "What is the premise of Blade Runner?", "label": "not_related"}
+{"input": "How do I replace a flat tire?", "label": "not_related"}
+{"input": "What is the process of cellular respiration?", "label": "not_related"}
+{"input": "Who composed The Four Seasons?", "label": "not_related"}
+{"input": "How do you play poker?", "label": "not_related"}
+{"input": "What is the event horizon of a black hole?", "label": "not_related"}
+{"input": "What are effective study techniques for exams?", "label": "not_related"}
+{"input": "What is the One Ring in The Lord of the Rings?", "label": "not_related"}
+{"input": "How are tsunamis formed and what causes them?", "label": "not_related"}
+{"input": "How do I fix a computer that won't start?", "label": "not_related"}
+{"input": "What led to the fall of the Byzantine Empire?", "label": "not_related"}
+{"input": "What are the benefits of a balanced diet?", "label": "not_related"}
+{"input": "Who developed the theory of relativity?", "label": "not_related"}
+{"input": "What distinguishes a typhoon from a cyclone?", "label": "not_related"}
+{"input": "How do I make fresh pasta from scratch?", "label": "not_related"}
+{"input": "What is psychohistory in the Foundation series?", "label": "not_related"}
+{"input": "What are the laws of supply and demand?", "label": "not_related"}
+{"input": "How does the circulatory system function?", "label": "not_related"}
+{"input": "Who is Worf and what is his Klingon heritage?", "label": "related"}
+{"input": "What is the Romulan Neutral Zone and why was it established?", "label": "related"}
+{"input": "Which Star Trek series features the spore drive technology?", "label": "related"}
+{"input": "What is the significance of the phrase 'Live long and prosper'?", "label": "related"}
+{"input": "Who was the first Klingon to serve in Starfleet?", "label": "related"}
+{"input": "What is a Ferengi Rules of Acquisition?", "label": "related"}
+{"input": "Which episode features the first appearance of the Romulans?", "label": "related"}
+{"input": "What is the purpose of the deflector array on a starship?", "label": "related"}
+{"input": "Who is Kathryn Janeway and what was her mission?", "label": "related"}
+{"input": "What is the difference between a photon torpedo and a quantum torpedo?", "label": "related"}
+{"input": "What is the significance of the Battle of Cardassia?", "label": "related"}
+{"input": "Who is the Borg Queen and what is her role?", "label": "related"}
+{"input": "What is a Bajoran earring and what does it represent?", "label": "related"}
+{"input": "Which Star Trek character is known for saying 'Fascinating'?", "label": "related"}
+{"input": "What is the purpose of the main shuttlebay on a starship?", "label": "related"}
+{"input": "Who is Geordi La Forge and what makes him unique?", "label": "related"}
+{"input": "What is the Dominion War and when did it occur?", "label": "related"}
+{"input": "What is a cloaking device and which species uses it?", "label": "related"}
+{"input": "Who is Seven of Nine and what is her background?", "label": "related"}
+{"input": "What is the significance of the Mirror Universe in Star Trek?", "label": "related"}
+{"input": "What is a warp field and how does it enable faster-than-light travel?", "label": "related"}
+{"input": "Who is Miles O'Brien and what is his profession?", "label": "related"}
+{"input": "What is the Prime Directive's stance on pre-warp civilizations?", "label": "related"}
+{"input": "What is a Cardassian voles and where are they found?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Michael Burnham?", "label": "related"}
+{"input": "What is the difference between a stardate and Earth calendar date?", "label": "related"}
+{"input": "Are lightsabers used in Star Trek?", "label": "not_related"}
+{"input": "How do I update my graphics card drivers?", "label": "not_related"}
+{"input": "What is the smallest country in the world?", "label": "not_related"}
+{"input": "What are sandworms in the Dune universe?", "label": "not_related"}
+{"input": "How do I prepare a perfect steak?", "label": "not_related"}
+{"input": "What is the Sith in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for insomnia?", "label": "not_related"}
+{"input": "What is artificial intelligence and what are its applications?", "label": "not_related"}
+{"input": "What are the differences between TypeScript and JavaScript?", "label": "not_related"}
+{"input": "Who won the NBA championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of 2001: A Space Odyssey?", "label": "not_related"}
+{"input": "How do I jump-start a car battery?", "label": "not_related"}
+{"input": "What is the process of DNA replication?", "label": "not_related"}
+{"input": "Who painted Starry Night?", "label": "not_related"}
+{"input": "How do you play bridge?", "label": "not_related"}
+{"input": "What is a neutron star and how does it form?", "label": "not_related"}
+{"input": "What are time management strategies for productivity?", "label": "not_related"}
+{"input": "What is Mount Doom in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do volcanoes erupt and what causes them?", "label": "not_related"}
+{"input": "How do I recover deleted files from my computer?", "label": "not_related"}
+{"input": "What caused World War I?", "label": "not_related"}
+{"input": "What are the health benefits of drinking water?", "label": "not_related"}
+{"input": "Who discovered penicillin?", "label": "not_related"}
+{"input": "What is the difference between a monsoon and a hurricane?", "label": "not_related"}
+{"input": "How do I make authentic ramen noodles?", "label": "not_related"}
+{"input": "What is the Second Foundation in Asimov's series?", "label": "not_related"}
+{"input": "What is inflation in economics?", "label": "not_related"}
+{"input": "How does the nervous system transmit signals?", "label": "not_related"}
+{"input": "Who is William Riker and what is his rank on the Enterprise?", "label": "related"}
+{"input": "What is the significance of the Battle of Sector 001?", "label": "related"}
+{"input": "Which Star Trek series features the USS Discovery?", "label": "related"}
+{"input": "What is a Betazoid wedding ceremony called?", "label": "related"}
+{"input": "Who is the chief medical officer on the Enterprise-D?", "label": "related"}
+{"input": "What is the purpose of the quantum slipstream drive?", "label": "related"}
+{"input": "Which episode features the first contact with the Borg?", "label": "related"}
+{"input": "What is a Romulan Warbird and how is it different from other ships?", "label": "related"}
+{"input": "Who is Jadzia Dax and what is a Trill symbiont?", "label": "related"}
+{"input": "What is the significance of the phrase 'Resistance is futile'?", "label": "related"}
+{"input": "What is a Cardassian neck trick and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Nexus?", "label": "related"}
+{"input": "What is the purpose of the bioneural gel packs on Voyager?", "label": "related"}
+{"input": "Who is T'Pol and which series does she appear in?", "label": "related"}
+{"input": "What is the difference between a Type 1 and Type 2 phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of the Binary Stars?", "label": "related"}
+{"input": "Who is the captain of the USS Defiant?", "label": "related"}
+{"input": "What is a Ferengi Grand Nagus and who holds this title?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tasha Yar?", "label": "related"}
+{"input": "What is the purpose of the emergency medical hologram?", "label": "related"}
+{"input": "Who is Neelix and what is his role on Voyager?", "label": "related"}
+{"input": "What is a Klingon Rite of Ascension?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Saru?", "label": "related"}
+{"input": "What is the difference between a warp factor and impulse speed?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway technology?", "label": "related"}
+{"input": "Does Star Trek have midi-chlorians?", "label": "not_related"}
+{"input": "How do I clear my browser cache?", "label": "not_related"}
+{"input": "What is the longest river in the world?", "label": "not_related"}
+{"input": "What are Bene Gesserit in the Dune series?", "label": "not_related"}
+{"input": "How do I make a classic French omelette?", "label": "not_related"}
+{"input": "What is the Death Star in Star Wars?", "label": "not_related"}
+{"input": "What are home remedies for sore throat?", "label": "not_related"}
+{"input": "What is blockchain technology and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Go and Rust programming languages?", "label": "not_related"}
+{"input": "Who won the World Cup in 2022?", "label": "not_related"}
+{"input": "What is the plot of The Terminator?", "label": "not_related"}
+{"input": "How do I check my car's tire pressure?", "label": "not_related"}
+{"input": "What is the process of mitosis?", "label": "not_related"}
+{"input": "Who sculpted David?", "label": "not_related"}
+{"input": "How do you play mahjong?", "label": "not_related"}
+{"input": "What is a white dwarf star and how does it form?", "label": "not_related"}
+{"input": "What are effective communication skills?", "label": "not_related"}
+{"input": "What is Rivendell in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do earthquakes occur and what are their effects?", "label": "not_related"}
+{"input": "How do I remove malware from my computer?", "label": "not_related"}
+{"input": "What were the causes of the American Civil War?", "label": "not_related"}
+{"input": "What are the benefits of getting enough sleep?", "label": "not_related"}
+{"input": "Who invented the printing press?", "label": "not_related"}
+{"input": "What is the difference between sleet and hail?", "label": "not_related"}
+{"input": "How do I make traditional sushi rice?", "label": "not_related"}
+{"input": "What is the Mule in the Foundation series?", "label": "not_related"}
+{"input": "What is GDP and how is it calculated?", "label": "not_related"}
+{"input": "How does the digestive system process food?", "label": "not_related"}
+{"input": "Who is Deanna Troi and what are her special abilities?", "label": "related"}
+{"input": "What is the significance of the Battle of Veridian III?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-A?", "label": "related"}
+{"input": "What is a Klingon bloodwine and when is it consumed?", "label": "related"}
+{"input": "Who is Beverly Crusher and what is her medical specialty?", "label": "related"}
+{"input": "What is the purpose of the transwarp conduit technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Ferengi?", "label": "related"}
+{"input": "What is a Jem'Hadar and what is their relationship with the Founders?", "label": "related"}
+{"input": "Who is Odo and what makes his species unique?", "label": "related"}
+{"input": "What is the significance of the phrase 'There are four lights'?", "label": "related"}
+{"input": "What is a Bajoran Orb and what are its properties?", "label": "related"}
+{"input": "Which Star Trek movie features the destruction of the Enterprise-D?", "label": "related"}
+{"input": "What is the purpose of the isokinetic cannon on Voyager?", "label": "related"}
+{"input": "Who is Quark and what is his business on Deep Space Nine?", "label": "related"}
+{"input": "What is a Vulcan katric ark and what does it contain?", "label": "related"}
+{"input": "What is the significance of the Battle of Chin'toka?", "label": "related"}
+{"input": "Who is Julian Bashir and what is his genetic enhancement?", "label": "related"}
+{"input": "What is a Breen warship and what makes it distinctive?", "label": "related"}
+{"input": "Which Star Trek episode features the return of Spock?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield technology?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-B?", "label": "related"}
+{"input": "What is a Klingon opera and what is its cultural significance?", "label": "related"}
+{"input": "What is the difference between a runabout and a shuttlecraft?", "label": "related"}
+{"input": "What is the significance of the Iconian homeworld?", "label": "related"}
+{"input": "Who is the founder of the Maquis and what was their cause?", "label": "related"}
+{"input": "Can you use the Force in Star Trek?", "label": "not_related"}
+{"input": "How do I change my computer's screen resolution?", "label": "not_related"}
+{"input": "What is the highest mountain in the world?", "label": "not_related"}
+{"input": "What are Mentats in the Dune universe?", "label": "not_related"}
+{"input": "How do I bake a chocolate cake from scratch?", "label": "not_related"}
+{"input": "What is a Wookiee in Star Wars?", "label": "not_related"}
+{"input": "What are natural ways to reduce stress?", "label": "not_related"}
+{"input": "What is cloud computing and what are its benefits?", "label": "not_related"}
+{"input": "What are the differences between SQL and NoSQL databases?", "label": "not_related"}
+{"input": "Who won the Stanley Cup in 2023?", "label": "not_related"}
+{"input": "What is the plot of Alien?", "label": "not_related"}
+{"input": "How do I change a car's air filter?", "label": "not_related"}
+{"input": "What is the process of meiosis?", "label": "not_related"}
+{"input": "Who wrote The Great Gatsby?", "label": "not_related"}
+{"input": "How do you play backgammon?", "label": "not_related"}
+{"input": "What is a red giant star and how does it form?", "label": "not_related"}
+{"input": "What are effective negotiation techniques?", "label": "not_related"}
+{"input": "What is Gondor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do lightning storms form and what causes them?", "label": "not_related"}
+{"input": "How do I install a new operating system?", "label": "not_related"}
+{"input": "What were the main events of the French Revolution?", "label": "not_related"}
+{"input": "What are the benefits of regular meditation?", "label": "not_related"}
+{"input": "Who invented the light bulb?", "label": "not_related"}
+{"input": "What is the difference between fog and mist?", "label": "not_related"}
+{"input": "How do I make homemade bread?", "label": "not_related"}
+{"input": "What is Hari Seldon in the Foundation series?", "label": "not_related"}
+{"input": "What is the stock market and how does it work?", "label": "not_related"}
+{"input": "How does the respiratory system function?", "label": "not_related"}
+{"input": "Who is Wesley Crusher and what is his relationship to the Enterprise crew?", "label": "related"}
+{"input": "What is the significance of the Battle of Narendra III?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-C?", "label": "related"}
+{"input": "What is a Vulcan pon farr and what triggers it?", "label": "related"}
+{"input": "Who is Kira Nerys and what is her role on Deep Space Nine?", "label": "related"}
+{"input": "What is the purpose of the ablative armor technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Cardassians?", "label": "related"}
+{"input": "What is a Vorta and what is their role in the Dominion?", "label": "related"}
+{"input": "Who is Garak and what is his true profession?", "label": "related"}
+{"input": "What is the significance of the phrase 'The needs of the many outweigh the needs of the few'?", "label": "related"}
+{"input": "What is a Tal Shiar and which species operates it?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-A's first mission?", "label": "related"}
+{"input": "What is the purpose of the variable geometry pylons on Voyager?", "label": "related"}
+{"input": "Who is Hoshi Sato and what is her specialty?", "label": "related"}
+{"input": "What is the difference between a disruptor and a phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of Procyon V?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-C?", "label": "related"}
+{"input": "What is a Ferengi latinum and what is its value?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Jadzia Dax?", "label": "related"}
+{"input": "What is the purpose of the bio-neural circuitry on Voyager?", "label": "related"}
+{"input": "Who is Kes and what is her species' lifespan?", "label": "related"}
+{"input": "What is a Klingon targ and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Ash Tyler?", "label": "related"}
+{"input": "What is the difference between a subspace communication and a standard radio?", "label": "related"}
+{"input": "What is the significance of the Bajoran wormhole?", "label": "related"}
+{"input": "Who founded Section 31 and what is their purpose?", "label": "related"}
+{"input": "Do Star Trek ships use hyperdrive?", "label": "not_related"}
+{"input": "How do I defragment my hard drive?", "label": "not_related"}
+{"input": "What is the deepest ocean in the world?", "label": "not_related"}
+{"input": "What are Kwisatz Haderach in the Dune series?", "label": "not_related"}
+{"input": "How do I make a perfect grilled cheese sandwich?", "label": "not_related"}
+{"input": "What is the Millennium Falcon in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for allergies?", "label": "not_related"}
+{"input": "What is the Internet of Things and how does it work?", "label": "not_related"}
+{"input": "What are the differences between C# and Java programming languages?", "label": "not_related"}
+{"input": "Who won the Masters Tournament in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Fifth Element?", "label": "not_related"}
+{"input": "How do I replace windshield wipers on my car?", "label": "not_related"}
+{"input": "What is the process of protein synthesis?", "label": "not_related"}
+{"input": "Who wrote 1984?", "label": "not_related"}
+{"input": "How do you play solitaire?", "label": "not_related"}
+{"input": "What is a supernova and how does it occur?", "label": "not_related"}
+{"input": "What are effective public speaking techniques?", "label": "not_related"}
+{"input": "What is Mordor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do blizzards form and what conditions cause them?", "label": "not_related"}
+{"input": "How do I partition my hard drive?", "label": "not_related"}
+{"input": "What were the key events of World War II?", "label": "not_related"}
+{"input": "What are the benefits of yoga practice?", "label": "not_related"}
+{"input": "Who invented the telephone?", "label": "not_related"}
+{"input": "What is the difference between snow and sleet?", "label": "not_related"}
+{"input": "How do I make authentic tacos?", "label": "not_related"}
+{"input": "What is Trantor in the Foundation series?", "label": "not_related"}
+{"input": "What is cryptocurrency and how does it work?", "label": "not_related"}
+{"input": "How does the endocrine system regulate hormones?", "label": "not_related"}
+{"input": "Who is Tuvok and what is his role on Voyager?", "label": "related"}
+{"input": "What is the significance of the Battle of the Omarion Nebula?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-E?", "label": "related"}
+{"input": "What is a Bajoran pagh and what does it represent?", "label": "related"}
+{"input": "Who is Chakotay and what is his background?", "label": "related"}
+{"input": "What is the purpose of the multi-vector assault mode?", "label": "related"}
+{"input": "Which episode features the first appearance of the Dominion?", "label": "related"}
+{"input": "What is a Changeling and what are their abilities?", "label": "related"}
+{"input": "Who is Martok and what is his position in the Klingon Empire?", "label": "related"}
+{"input": "What is the significance of the phrase 'Darmok and Jalad at Tanagra'?", "label": "related"}
+{"input": "What is a Romulan plasma weapon and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg?", "label": "related"}
+{"input": "What is the purpose of the quantum torpedo launcher?", "label": "related"}
+{"input": "Who is Travis Mayweather and what is his expertise?", "label": "related"}
+{"input": "What is the difference between a Type 3 phaser rifle and a compression rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of AR-558?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-E?", "label": "related"}
+{"input": "What is a Ferengi lobe massage and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tuvix?", "label": "related"}
+{"input": "What is the purpose of the bio-mimetic gel on Voyager?", "label": "related"}
+{"input": "Who is the Doctor and what is his full designation?", "label": "related"}
+{"input": "What is a Klingon painstick and when is it used?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Sylvia Tilly?", "label": "related"}
+{"input": "What is the difference between a warp core and an impulse engine?", "label": "related"}
+{"input": "What is the significance of the Caretaker's array?", "label": "related"}
+{"input": "Who is the leader of the Romulan Star Empire?", "label": "related"}
+{"input": "Are droids used in Star Trek?", "label": "not_related"}
+{"input": "How do I optimize my computer's performance?", "label": "not_related"}
+{"input": "What is the largest desert in the world?", "label": "not_related"}
+{"input": "What are Sardaukar in the Dune series?", "label": "not_related"}
+{"input": "How do I make a classic Caesar salad?", "label": "not_related"}
+{"input": "What is Yoda in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for cold sores?", "label": "not_related"}
+{"input": "What is edge computing and what are its advantages?", "label": "not_related"}
+{"input": "What are the differences between PHP and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Wimbledon Championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of Interstellar?", "label": "not_related"}
+{"input": "How do I check my car's oil level?", "label": "not_related"}
+{"input": "What is the process of transcription in biology?", "label": "not_related"}
+{"input": "Who wrote To Kill a Mockingbird?", "label": "not_related"}
+{"input": "How do you play checkers?", "label": "not_related"}
+{"input": "What is a quasar and how does it form?", "label": "not_related"}
+{"input": "What are effective leadership skills?", "label": "not_related"}
+{"input": "What is Rohan in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do tornadoes form and what are their characteristics?", "label": "not_related"}
+{"input": "How do I create a backup of my files?", "label": "not_related"}
+{"input": "What were the causes of the Russian Revolution?", "label": "not_related"}
+{"input": "What are the benefits of mindfulness meditation?", "label": "not_related"}
+{"input": "Who invented the steam engine?", "label": "not_related"}
+{"input": "What is the difference between rain and drizzle?", "label": "not_related"}
+{"input": "How do I make homemade ice cream?", "label": "not_related"}
+{"input": "What is the Galactic Empire in the Foundation series?", "label": "not_related"}
+{"input": "What is a stock exchange and how does it function?", "label": "not_related"}
+{"input": "How does the lymphatic system work?", "label": "not_related"}
+{"input": "Who is B'Elanna Torres and what is her mixed heritage?", "label": "related"}
+{"input": "What is the significance of the Battle of Betazed?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-F?", "label": "related"}
+{"input": "What is a Vulcan meditation technique and how does it work?", "label": "related"}
+{"input": "Who is Tom Paris and what is his connection to Starfleet?", "label": "related"}
+{"input": "What is the purpose of the transphasic torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of Species 8472?", "label": "related"}
+{"input": "What is a Hirogen and what is their hunting culture?", "label": "related"}
+{"input": "Who is Gowron and what is his role in Klingon politics?", "label": "related"}
+{"input": "What is the significance of the phrase 'I have been, and always shall be, your friend'?", "label": "related"}
+{"input": "What is a Cardassian disruptor and how does it differ from a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's battle with the Son'a?", "label": "related"}
+{"input": "What is the purpose of the phase cloak technology?", "label": "related"}
+{"input": "Who is Malcolm Reed and what is his specialty?", "label": "related"}
+{"input": "What is the difference between a Type 4 phaser and a Type 5 phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of Deep Space 9?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-F?", "label": "related"}
+{"input": "What is a Ferengi contract and what are its typical terms?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Trip Tucker?", "label": "related"}
+{"input": "What is the purpose of the polaron beam weapon?", "label": "related"}
+{"input": "Who is Harry Kim and what is his position on Voyager?", "label": "related"}
+{"input": "What is a Klingon targ hunt and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Paul Stamets?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp drive?", "label": "related"}
+{"input": "What is the significance of the Iconian probe?", "label": "related"}
+{"input": "Who is the leader of the Cardassian Union?", "label": "related"}
+{"input": "Does Star Trek have stormtroopers?", "label": "not_related"}
+{"input": "How do I clean my computer's registry?", "label": "not_related"}
+{"input": "What is the largest lake in the world?", "label": "not_related"}
+{"input": "What are Fremen in the Dune series?", "label": "not_related"}
+{"input": "How do I make a perfect omelet?", "label": "not_related"}
+{"input": "What is Darth Vader in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for arthritis?", "label": "not_related"}
+{"input": "What is quantum computing and what are its applications?", "label": "not_related"}
+{"input": "What are the differences between Ruby and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Tour de France in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Martian?", "label": "not_related"}
+{"input": "How do I change my car's brake pads?", "label": "not_related"}
+{"input": "What is the process of translation in biology?", "label": "not_related"}
+{"input": "Who wrote Pride and Prejudice?", "label": "not_related"}
+{"input": "How do you play chess?", "label": "not_related"}
+{"input": "What is a pulsar and how does it form?", "label": "not_related"}
+{"input": "What are effective conflict resolution strategies?", "label": "not_related"}
+{"input": "What is the Shire in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do hailstorms form and what causes them?", "label": "not_related"}
+{"input": "How do I encrypt my files for security?", "label": "not_related"}
+{"input": "What were the main causes of the Industrial Revolution?", "label": "not_related"}
+{"input": "What are the benefits of tai chi practice?", "label": "not_related"}
+{"input": "Who invented the radio?", "label": "not_related"}
+{"input": "What is the difference between freezing rain and sleet?", "label": "not_related"}
+{"input": "How do I make fresh guacamole?", "label": "not_related"}
+{"input": "What is the Mule's plan in the Foundation series?", "label": "not_related"}
+{"input": "What is a bond market and how does it work?", "label": "not_related"}
+{"input": "How does the skeletal system support the body?", "label": "not_related"}
+{"input": "Who is Phlox and what is his medical expertise?", "label": "related"}
+{"input": "What is the significance of the Battle of the Briar Patch?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-J?", "label": "related"}
+{"input": "What is a Vulcan katra and how is it preserved?", "label": "related"}
+{"input": "Who is Jonathan Archer and what is his mission?", "label": "related"}
+{"input": "What is the purpose of the chroniton torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Xindi?", "label": "related"}
+{"input": "What is a Tholian and what is their web technology?", "label": "related"}
+{"input": "Who is Dukat and what is his role in Cardassian history?", "label": "related"}
+{"input": "What is the significance of the phrase 'Logic is the beginning of wisdom, not the end'?", "label": "related"}
+{"input": "What is a Breen energy dampening weapon and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to the Ba'ku planet?", "label": "related"}
+{"input": "What is the purpose of the ablative generator technology?", "label": "related"}
+{"input": "Who is Hoshi Sato and what is her linguistic specialty?", "label": "related"}
+{"input": "What is the difference between a Type 6 phaser and a Type 7 phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of the Badlands?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-J?", "label": "related"}
+{"input": "What is a Ferengi auction and what are its rules?", "label": "related"}
+{"input": "Which Star Trek episode features the first appearance of the Founders?", "label": "related"}
+{"input": "What is the purpose of the graviton beam technology?", "label": "related"}
+{"input": "Who is Samantha Wildman and what is her role on Voyager?", "label": "related"}
+{"input": "What is a Klingon bat'leth tournament and what are its rules?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Philippa Georgiou?", "label": "related"}
+{"input": "What is the difference between a quantum singularity drive and a warp drive?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway network?", "label": "related"}
+{"input": "Who is the leader of the Klingon High Council?", "label": "related"}
+{"input": "Can you use lightsabers in Star Trek?", "label": "not_related"}
+{"input": "How do I speed up my computer's startup time?", "label": "not_related"}
+{"input": "What is the largest island in the world?", "label": "not_related"}
+{"input": "What are Navigators in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect scrambled eggs?", "label": "not_related"}
+{"input": "What is the Rebel Alliance in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for migraines?", "label": "not_related"}
+{"input": "What is augmented reality and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Swift and Kotlin programming languages?", "label": "not_related"}
+{"input": "Who won the Olympic gold medal in men's 100m sprint in 2020?", "label": "not_related"}
+{"input": "What is the plot of Arrival?", "label": "not_related"}
+{"input": "How do I replace my car's spark plugs?", "label": "not_related"}
+{"input": "What is the process of photosynthesis in detail?", "label": "not_related"}
+{"input": "Who wrote Moby Dick?", "label": "not_related"}
+{"input": "How do you play Monopoly?", "label": "not_related"}
+{"input": "What is a nebula and how does it form?", "label": "not_related"}
+{"input": "What are effective team building activities?", "label": "not_related"}
+{"input": "What is Isengard in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do sandstorms form and what causes them?", "label": "not_related"}
+{"input": "How do I set up a VPN connection?", "label": "not_related"}
+{"input": "What were the main events of the Renaissance period?", "label": "not_related"}
+{"input": "What are the benefits of acupuncture?", "label": "not_related"}
+{"input": "Who invented the microscope?", "label": "not_related"}
+{"input": "What is the difference between snow and freezing rain?", "label": "not_related"}
+{"input": "How do I make authentic pad thai?", "label": "not_related"}
+{"input": "What is the Second Foundation's location in Asimov's series?", "label": "not_related"}
+{"input": "What is a futures market and how does it work?", "label": "not_related"}
+{"input": "How does the muscular system enable movement?", "label": "not_related"}
+{"input": "Who is Trip Tucker and what is his engineering role?", "label": "related"}
+{"input": "What is the significance of the Battle of Cheron?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-D refit?", "label": "related"}
+{"input": "What is a Bajoran vedek and what is their religious role?", "label": "related"}
+{"input": "Who is Shran and what is his relationship with Archer?", "label": "related"}
+{"input": "What is the purpose of the isolytic burst weapon?", "label": "related"}
+{"input": "Which episode features the first appearance of the Breen?", "label": "related"}
+{"input": "What is a Gorn and what are their characteristics?", "label": "related"}
+{"input": "Who is Damar and what is his role in Cardassian politics?", "label": "related"}
+{"input": "What is the significance of the phrase 'The first duty of every Starfleet officer is to the truth'?", "label": "related"}
+{"input": "What is a Romulan disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Remans?", "label": "related"}
+{"input": "What is the purpose of the metaphasic radiation technology?", "label": "related"}
+{"input": "Who is Lwaxana Troi and what is her relationship to Deanna?", "label": "related"}
+{"input": "What is the difference between a Type 8 phaser and a Type 9 phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of the Mutara Nebula?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-D refit?", "label": "related"}
+{"input": "What is a Ferengi bribe and what is its cultural significance?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Data?", "label": "related"}
+{"input": "What is the purpose of the chronometric particle technology?", "label": "related"}
+{"input": "Who is Naomi Wildman and what is her unique status?", "label": "related"}
+{"input": "What is a Klingon honor duel and what are its rules?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Keyla Detmer?", "label": "related"}
+{"input": "What is the difference between a warp drive and a slipstream drive?", "label": "related"}
+{"input": "What is the significance of the Bajoran Prophets?", "label": "related"}
+{"input": "Who is the leader of the Andorian Empire?", "label": "related"}
+{"input": "Are there Ewoks in Star Trek?", "label": "not_related"}
+{"input": "How do I free up disk space on my computer?", "label": "not_related"}
+{"input": "What is the longest river in Africa?", "label": "not_related"}
+{"input": "What are Guild Navigators in the Dune series?", "label": "not_related"}
+{"input": "How do I make a perfect quiche?", "label": "not_related"}
+{"input": "What is the Empire in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for anxiety?", "label": "not_related"}
+{"input": "What is virtual reality and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Perl and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Formula One World Championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of Gravity?", "label": "not_related"}
+{"input": "How do I check my car's transmission fluid?", "label": "not_related"}
+{"input": "What is the process of glycolysis?", "label": "not_related"}
+{"input": "Who wrote The Catcher in the Rye?", "label": "not_related"}
+{"input": "How do you play Risk?", "label": "not_related"}
+{"input": "What is a galaxy and how does it form?", "label": "not_related"}
+{"input": "What are effective problem-solving techniques?", "label": "not_related"}
+{"input": "What is Lothlórien in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do hurricanes form and what are their stages?", "label": "not_related"}
+{"input": "How do I configure my router settings?", "label": "not_related"}
+{"input": "What were the main causes of the Cold War?", "label": "not_related"}
+{"input": "What are the benefits of pilates?", "label": "not_related"}
+{"input": "Who invented the telescope?", "label": "not_related"}
+{"input": "What is the difference between a blizzard and a snowstorm?", "label": "not_related"}
+{"input": "How do I make homemade pesto?", "label": "not_related"}
+{"input": "What is the First Foundation in Asimov's series?", "label": "not_related"}
+{"input": "What is a commodity market and how does it work?", "label": "not_related"}
+{"input": "How does the integumentary system protect the body?", "label": "not_related"}
+{"input": "Who is T'Pau and what is her role in Vulcan society?", "label": "related"}
+{"input": "What is the significance of the Battle of Cardassia Prime?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-G?", "label": "related"}
+{"input": "What is a Vulcan plomeek soup and what is its significance?", "label": "related"}
+{"input": "Who is Ezri Dax and how does she differ from Jadzia?", "label": "related"}
+{"input": "What is the purpose of the phase discriminator technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Pakleds?", "label": "related"}
+{"input": "What is a Sheliak and what is their legal system?", "label": "related"}
+{"input": "Who is Weyoun and what is his role in the Dominion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Infinite diversity in infinite combinations'?", "label": "related"}
+{"input": "What is a Cardassian voles infestation and how is it handled?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to Romulus?", "label": "related"}
+{"input": "What is the purpose of the tachyon detection grid?", "label": "related"}
+{"input": "Who is Zefram Cochrane and what is his contribution to space travel?", "label": "related"}
+{"input": "What is the difference between a Type 10 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the First Federation?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-G?", "label": "related"}
+{"input": "What is a Ferengi profit margin and how is it calculated?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Kirk?", "label": "related"}
+{"input": "What is the purpose of the subspace field generator?", "label": "related"}
+{"input": "Who is Icheb and what is his Borg background?", "label": "related"}
+{"input": "What is a Klingon R'uustai ceremony and what does it mean?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Joann Owosekun?", "label": "related"}
+{"input": "What is the difference between a warp drive and a quantum slipstream drive?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway activation sequence?", "label": "related"}
+{"input": "Who is the leader of the Ferengi Alliance?", "label": "related"}
+{"input": "Does Star Trek have X-wings?", "label": "not_related"}
+{"input": "How do I update my operating system?", "label": "not_related"}
+{"input": "What is the largest peninsula in the world?", "label": "not_related"}
+{"input": "What are Harkonnens in the Dune series?", "label": "not_related"}
+{"input": "How do I make a perfect soufflé?", "label": "not_related"}
+{"input": "What is the Clone Wars in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for depression?", "label": "not_related"}
+{"input": "What is 5G technology and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Scala and Java programming languages?", "label": "not_related"}
+{"input": "Who won the UEFA Champions League in 2023?", "label": "not_related"}
+{"input": "What is the plot of Contact?", "label": "not_related"}
+{"input": "How do I change my car's coolant?", "label": "not_related"}
+{"input": "What is the process of fermentation?", "label": "not_related"}
+{"input": "Who wrote The Odyssey?", "label": "not_related"}
+{"input": "How do you play Scrabble?", "label": "not_related"}
+{"input": "What is a supermassive black hole and how does it form?", "label": "not_related"}
+{"input": "What are effective decision-making strategies?", "label": "not_related"}
+{"input": "What is Fangorn Forest in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do monsoons form and what causes them?", "label": "not_related"}
+{"input": "How do I change my Wi-Fi password?", "label": "not_related"}
+{"input": "What were the main events of the American Revolution?", "label": "not_related"}
+{"input": "What are the benefits of swimming?", "label": "not_related"}
+{"input": "Who invented the compass?", "label": "not_related"}
+{"input": "What is the difference between a thunderstorm and a lightning storm?", "label": "not_related"}
+{"input": "How do I make authentic carbonara?", "label": "not_related"}
+{"input": "What is the Encyclopedia Galactica in the Foundation series?", "label": "not_related"}
+{"input": "What is a derivatives market and how does it work?", "label": "not_related"}
+{"input": "How does the reproductive system function?", "label": "not_related"}
+{"input": "Who is Sarek and what is his relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Bassen Rift?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-H?", "label": "related"}
+{"input": "What is a Vulcan ritual of koon-ut-kal-if-fee and when is it performed?", "label": "related"}
+{"input": "Who is Ro Laren and what is her Bajoran heritage?", "label": "related"}
+{"input": "What is the purpose of the gravimetric torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Talaxians?", "label": "related"}
+{"input": "What is a Tzenkethi and what are their characteristics?", "label": "related"}
+{"input": "Who is Winn Adami and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'The line must be drawn here'?", "label": "related"}
+{"input": "What is a Breen cryonic weapon and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Scimitar?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield generator?", "label": "related"}
+{"input": "Who is Arik Soong and what is his genetic research?", "label": "related"}
+{"input": "What is the difference between a Type 11 phaser and a Type 12 phaser?", "label": "related"}
+{"input": "What is the significance of the Battle of the Azure Nebula?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-H?", "label": "related"}
+{"input": "What is a Ferengi contract negotiation and what are its tactics?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tasha Yar in the alternate timeline?", "label": "related"}
+{"input": "What is the purpose of the chroniton field technology?", "label": "related"}
+{"input": "Who is Mezoti and what is her species?", "label": "related"}
+{"input": "What is a Klingon Day of Honor and what does it commemorate?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Airiam?", "label": "related"}
+{"input": "What is the difference between a warp drive and a coaxial warp drive?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway maintenance protocol?", "label": "related"}
+{"input": "Who is the leader of the Tellarite government?", "label": "related"}
+{"input": "Are there TIE fighters in Star Trek?", "label": "not_related"}
+{"input": "How do I scan for viruses on my computer?", "label": "not_related"}
+{"input": "What is the largest archipelago in the world?", "label": "not_related"}
+{"input": "What are Atreides in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect crème brûlée?", "label": "not_related"}
+{"input": "What is the Jedi Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for heartburn?", "label": "not_related"}
+{"input": "What is machine learning and how does it differ from AI?", "label": "not_related"}
+{"input": "What are the differences between Haskell and Python programming languages?", "label": "not_related"}
+{"input": "Who won the World Series in 2023?", "label": "not_related"}
+{"input": "What is the plot of Ex Machina?", "label": "not_related"}
+{"input": "How do I check my car's battery voltage?", "label": "not_related"}
+{"input": "What is the process of cellular division?", "label": "not_related"}
+{"input": "Who wrote War and Peace?", "label": "not_related"}
+{"input": "How do you play Go?", "label": "not_related"}
+{"input": "What is a star cluster and how does it form?", "label": "not_related"}
+{"input": "What are effective goal-setting techniques?", "label": "not_related"}
+{"input": "What is Bree in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do ice storms form and what causes them?", "label": "not_related"}
+{"input": "How do I reset my network adapter?", "label": "not_related"}
+{"input": "What were the main causes of the Great Depression?", "label": "not_related"}
+{"input": "What are the benefits of cycling?", "label": "not_related"}
+{"input": "Who invented the wheel?", "label": "not_related"}
+{"input": "What is the difference between a gale and a storm?", "label": "not_related"}
+{"input": "How do I make authentic tiramisu?", "label": "not_related"}
+{"input": "What is the Seldon Plan in the Foundation series?", "label": "not_related"}
+{"input": "What is a foreign exchange market and how does it work?", "label": "not_related"}
+{"input": "How does the urinary system function?", "label": "not_related"}
+{"input": "Who is Amanda Grayson and what is her relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Typhon Expanse?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-I?", "label": "related"}
+{"input": "What is a Vulcan meditation technique called kolinahr and what does it achieve?", "label": "related"}
+{"input": "Who is Nog and what is his journey to Starfleet?", "label": "related"}
+{"input": "What is the purpose of the phase variance torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Vidiians?", "label": "related"}
+{"input": "What is a Malon and what is their environmental issue?", "label": "related"}
+{"input": "Who is Kai Opaka and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Time is the fire in which we burn'?", "label": "related"}
+{"input": "What is a Cardassian disruptor rifle and how does it compare to Starfleet weapons?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Shinzon?", "label": "related"}
+{"input": "What is the purpose of the interphasic cloak technology?", "label": "related"}
+{"input": "Who is Soji Asha and what is her connection to Data?", "label": "related"}
+{"input": "What is the difference between a Type 13 phaser and a compression phaser pistol?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Quadrant?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-I?", "label": "related"}
+{"input": "What is a Ferengi acquisition and what are its principles?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Trip Tucker in the prime timeline?", "label": "related"}
+{"input": "What is the purpose of the tachyon pulse technology?", "label": "related"}
+{"input": "Who is Rebi and what is her species?", "label": "related"}
+{"input": "What is a Klingon Rite of Succession and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Nhan?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway diagnostic procedure?", "label": "related"}
+{"input": "Who is the leader of the Denobulan government?", "label": "related"}
+{"input": "Are there Death Stars in Star Trek?", "label": "not_related"}
+{"input": "How do I uninstall programs from my computer?", "label": "not_related"}
+{"input": "What is the largest gulf in the world?", "label": "not_related"}
+{"input": "What are Suk doctors in the Dune universe?", "label": "not_related"}
+{"input": "How do I make perfect chocolate mousse?", "label": "not_related"}
+{"input": "What is the Sith Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for nausea?", "label": "not_related"}
+{"input": "What is deep learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Lua and Python programming languages?", "label": "not_related"}
+{"input": "Who won the NBA Finals in 2023?", "label": "not_related"}
+{"input": "What is the plot of Her?", "label": "not_related"}
+{"input": "How do I check my car's brake fluid level?", "label": "not_related"}
+{"input": "What is the process of osmosis?", "label": "not_related"}
+{"input": "Who wrote The Iliad?", "label": "not_related"}
+{"input": "How do you play Catan?", "label": "not_related"}
+{"input": "What is a planetary nebula and how does it form?", "label": "not_related"}
+{"input": "What are effective stress management techniques?", "label": "not_related"}
+{"input": "What is Edoras in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do dust storms form and what causes them?", "label": "not_related"}
+{"input": "How do I fix a slow computer?", "label": "not_related"}
+{"input": "What were the main events of the Vietnam War?", "label": "not_related"}
+{"input": "What are the benefits of running?", "label": "not_related"}
+{"input": "Who invented gunpowder?", "label": "not_related"}
+{"input": "What is the difference between a squall and a gust?", "label": "not_related"}
+{"input": "How do I make authentic baklava?", "label": "not_related"}
+{"input": "What is the Second Foundation's purpose in Asimov's series?", "label": "not_related"}
+{"input": "What is a money market and how does it work?", "label": "not_related"}
+{"input": "How does the immune system fight infections?", "label": "not_related"}
+{"input": "Who is Sybok and what is his relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Hydra system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-K?", "label": "related"}
+{"input": "What is a Vulcan lirpa and what is its purpose?", "label": "related"}
+{"input": "Who is Jake Sisko and what is his career path?", "label": "related"}
+{"input": "What is the purpose of the gravimetric torpedo launcher?", "label": "related"}
+{"input": "Which episode features the first appearance of the Kazon?", "label": "related"}
+{"input": "What is a Son'a and what is their relationship with the Ba'ku?", "label": "related"}
+{"input": "Who is Bareil Antos and what is his role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Change is the essential process of all existence'?", "label": "related"}
+{"input": "What is a Romulan plasma torpedo and how does it differ from a photon torpedo?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to prevent a Romulan supernova?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield array?", "label": "related"}
+{"input": "Who is Lal and what is her relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 14 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Chin'toka system?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-K?", "label": "related"}
+{"input": "What is a Ferengi negotiation and what are its key tactics?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tora Ziyal?", "label": "related"}
+{"input": "What is the purpose of the chroniton torpedo launcher?", "label": "related"}
+{"input": "Who is Azetbur and what is her role in Klingon politics?", "label": "related"}
+{"input": "What is a Klingon Rite of Vengeance and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Linus?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp conduit?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway calibration sequence?", "label": "related"}
+{"input": "Who is the leader of the Bolian government?", "label": "related"}
+{"input": "Are there AT-ATs in Star Trek?", "label": "not_related"}
+{"input": "How do I clear my computer's temporary files?", "label": "not_related"}
+{"input": "What is the largest bay in the world?", "label": "not_related"}
+{"input": "What are Fish Speakers in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect crêpes?", "label": "not_related"}
+{"input": "What is the Galactic Republic in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for indigestion?", "label": "not_related"}
+{"input": "What is neural networks and how do they work?", "label": "not_related"}
+{"input": "What are the differences between R and Python programming languages?", "label": "not_related"}
+{"input": "Who won the UEFA European Championship in 2020?", "label": "not_related"}
+{"input": "What is the plot of Moon?", "label": "not_related"}
+{"input": "How do I check my car's power steering fluid?", "label": "not_related"}
+{"input": "What is the process of diffusion?", "label": "not_related"}
+{"input": "Who wrote The Divine Comedy?", "label": "not_related"}
+{"input": "How do you play Settlers of Catan?", "label": "not_related"}
+{"input": "What is a supernova remnant and how does it form?", "label": "not_related"}
+{"input": "What are effective memory improvement techniques?", "label": "not_related"}
+{"input": "What is Helm's Deep in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do heat waves form and what causes them?", "label": "not_related"}
+{"input": "How do I update my device drivers?", "label": "not_related"}
+{"input": "What were the main causes of the Korean War?", "label": "not_related"}
+{"input": "What are the benefits of hiking?", "label": "not_related"}
+{"input": "Who invented paper?", "label": "not_related"}
+{"input": "What is the difference between a breeze and a wind?", "label": "not_related"}
+{"input": "How do I make authentic gelato?", "label": "not_related"}
+{"input": "What is the First Foundation's location in Asimov's series?", "label": "not_related"}
+{"input": "What is a capital market and how does it work?", "label": "not_related"}
+{"input": "How does the endocrine system regulate metabolism?", "label": "not_related"}
+{"input": "Who is T'Pring and what is her relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Donatu system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-L?", "label": "related"}
+{"input": "What is a Vulcan ahn-woon and what is its purpose?", "label": "related"}
+{"input": "Who is Kasidy Yates and what is her relationship to Benjamin Sisko?", "label": "related"}
+{"input": "What is the purpose of the isolytic subspace weapon?", "label": "related"}
+{"input": "Which episode features the first appearance of the Hirogen?", "label": "related"}
+{"input": "What is a Ba'ku and what makes them unique?", "label": "related"}
+{"input": "Who is Vedek Bareil and what is his role in Bajoran politics?", "label": "related"}
+{"input": "What is the significance of the phrase 'The needs of the one outweigh the needs of the many'?", "label": "related"}
+{"input": "What is a Cardassian phase-disruptor and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop Shinzon's thalaron weapon?", "label": "related"}
+{"input": "What is the purpose of the metaphasic radiation shield?", "label": "related"}
+{"input": "Who is Lore and what is his relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 15 phaser and a compression phaser cannon?", "label": "related"}
+{"input": "What is the significance of the Battle of the Maxia system?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-L?", "label": "related"}
+{"input": "What is a Ferengi profit and what determines its value?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Ziyal?", "label": "related"}
+{"input": "What is the purpose of the tachyon detection array?", "label": "related"}
+{"input": "Who is Icheb and what is his Borg designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Passage and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Rhys?", "label": "related"}
+{"input": "What is the difference between a warp drive and a quantum slipstream?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway power requirements?", "label": "related"}
+{"input": "Who is the leader of the Rigelian government?", "label": "related"}
+{"input": "Are there speeder bikes in Star Trek?", "label": "not_related"}
+{"input": "How do I disable startup programs on my computer?", "label": "not_related"}
+{"input": "What is the largest strait in the world?", "label": "not_related"}
+{"input": "What are Face Dancers in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect macarons?", "label": "not_related"}
+{"input": "What is the Trade Federation in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for constipation?", "label": "not_related"}
+{"input": "What is reinforcement learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between MATLAB and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Masters Golf Tournament in 2023?", "label": "not_related"}
+{"input": "What is the plot of Solaris?", "label": "not_related"}
+{"input": "How do I check my car's windshield washer fluid?", "label": "not_related"}
+{"input": "What is the process of active transport?", "label": "not_related"}
+{"input": "Who wrote Don Quixote?", "label": "not_related"}
+{"input": "How do you play Clue?", "label": "not_related"}
+{"input": "What is a gamma-ray burst and how does it occur?", "label": "not_related"}
+{"input": "What are effective concentration techniques?", "label": "not_related"}
+{"input": "What is Minas Tirith in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do cold fronts form and what causes them?", "label": "not_related"}
+{"input": "How do I change my computer's power settings?", "label": "not_related"}
+{"input": "What were the main events of the Gulf War?", "label": "not_related"}
+{"input": "What are the benefits of weightlifting?", "label": "not_related"}
+{"input": "Who invented the steam engine?", "label": "not_related"}
+{"input": "What is the difference between a zephyr and a gale?", "label": "not_related"}
+{"input": "How do I make authentic cannoli?", "label": "not_related"}
+{"input": "What is the Mule's origin in the Foundation series?", "label": "not_related"}
+{"input": "What is a bond rating and how is it determined?", "label": "not_related"}
+{"input": "How does the integumentary system maintain body temperature?", "label": "not_related"}
+{"input": "Who is Valeris and what is her role in the Khitomer conspiracy?", "label": "related"}
+{"input": "What is the significance of the Battle of the Narendra system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-M?", "label": "related"}
+{"input": "What is a Vulcan suus mahna and what is its purpose?", "label": "related"}
+{"input": "Who is Leeta and what is her relationship to Rom?", "label": "related"}
+{"input": "What is the purpose of the graviton pulse technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Voth?", "label": "related"}
+{"input": "What is a Reman and what are their characteristics?", "label": "related"}
+{"input": "Who is Vedek Winn and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Sometimes a man will tell his bartender things he'll never tell his doctor'?", "label": "related"}
+{"input": "What is a Breen disruptor and how does it compare to Federation weapons?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg Queen?", "label": "related"}
+{"input": "What is the purpose of the interphase generator technology?", "label": "related"}
+{"input": "Who is B-4 and what is his relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 16 phaser and a compression phaser array?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Hydra sector?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-M?", "label": "related"}
+{"input": "What is a Ferengi business transaction and what are its components?", "label": "related"}
+{"input": "Which Star Trek episode features the death of K'Ehleyr?", "label": "related"}
+{"input": "What is the purpose of the chroniton field generator?", "label": "related"}
+{"input": "Who is Vorik and what is his Vulcan heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Challenge and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Bryce?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp network?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway security protocol?", "label": "related"}
+{"input": "Who is the leader of the Orion Syndicate?", "label": "related"}
+{"input": "Are there blasters in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's memory usage?", "label": "not_related"}
+{"input": "What is the largest canal in the world?", "label": "not_related"}
+{"input": "What are Tleilaxu in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect profiteroles?", "label": "not_related"}
+{"input": "What is the First Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for bloating?", "label": "not_related"}
+{"input": "What is natural language processing and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Julia and Python programming languages?", "label": "not_related"}
+{"input": "Who won the French Open in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Andromeda Strain?", "label": "not_related"}
+{"input": "How do I check my car's antifreeze level?", "label": "not_related"}
+{"input": "What is the process of endocytosis?", "label": "not_related"}
+{"input": "Who wrote The Canterbury Tales?", "label": "not_related"}
+{"input": "How do you play Uno?", "label": "not_related"}
+{"input": "What is a magnetar and how does it form?", "label": "not_related"}
+{"input": "What are effective note-taking strategies?", "label": "not_related"}
+{"input": "What is the Black Gate in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do warm fronts form and what causes them?", "label": "not_related"}
+{"input": "How do I run a disk cleanup on my computer?", "label": "not_related"}
+{"input": "What were the main causes of the Spanish Civil War?", "label": "not_related"}
+{"input": "What are the benefits of rock climbing?", "label": "not_related"}
+{"input": "Who invented the abacus?", "label": "not_related"}
+{"input": "What is the difference between a mist and a fog?", "label": "not_related"}
+{"input": "How do I make authentic panna cotta?", "label": "not_related"}
+{"input": "What is the Encyclopedia Galactica's purpose in Asimov's series?", "label": "not_related"}
+{"input": "What is a credit rating and how is it calculated?", "label": "not_related"}
+{"input": "How does the lymphatic system drain fluid?", "label": "not_related"}
+{"input": "Who is Saavik and what is her relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Klach D'Kel Brakt?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-N?", "label": "related"}
+{"input": "What is a Vulcan ahn-woon and what is its combat purpose?", "label": "related"}
+{"input": "Who is Ishka and what is her relationship to Quark?", "label": "related"}
+{"input": "What is the purpose of the gravimetric torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Krenim?", "label": "related"}
+{"input": "What is a Ba'ku and what is their relationship with the Son'a?", "label": "related"}
+{"input": "Who is Vedek Bareil and what is his relationship to Kira?", "label": "related"}
+{"input": "What is the significance of the phrase 'Logic is the beginning of wisdom, not the end'?", "label": "related"}
+{"input": "What is a Cardassian disruptor cannon and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop Shinzon's thalaron weapon?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield technology?", "label": "related"}
+{"input": "Who is Spot and what is her relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 17 phaser and a compression phaser battery?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Quadrant?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-N?", "label": "related"}
+{"input": "What is a Ferengi acquisition and what are its rules?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Kurn?", "label": "related"}
+{"input": "What is the purpose of the tachyon detection system?", "label": "related"}
+{"input": "Who is Hugh and what is his Borg designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Ascension and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Gen Rhys?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway activation code?", "label": "related"}
+{"input": "Who is the leader of the Pakled government?", "label": "related"}
+{"input": "Are there thermal detonators in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's CPU temperature?", "label": "not_related"}
+{"input": "What is the largest fjord in the world?", "label": "not_related"}
+{"input": "What are Honored Matres in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect éclairs?", "label": "not_related"}
+{"input": "What is the Resistance in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for acid reflux?", "label": "not_related"}
+{"input": "What is computer vision and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Fortran and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Australian Open in 2023?", "label": "not_related"}
+{"input": "What is the plot of Silent Running?", "label": "not_related"}
+{"input": "How do I check my car's radiator fluid?", "label": "not_related"}
+{"input": "What is the process of exocytosis?", "label": "not_related"}
+{"input": "Who wrote Paradise Lost?", "label": "not_related"}
+{"input": "How do you play Hearts?", "label": "not_related"}
+{"input": "What is a brown dwarf and how does it form?", "label": "not_related"}
+{"input": "What are effective reading comprehension strategies?", "label": "not_related"}
+{"input": "What is the Two Towers in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do stationary fronts form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's disk health?", "label": "not_related"}
+{"input": "What were the main events of the Falklands War?", "label": "not_related"}
+{"input": "What are the benefits of martial arts?", "label": "not_related"}
+{"input": "Who invented the calendar?", "label": "not_related"}
+{"input": "What is the difference between a drizzle and a shower?", "label": "not_related"}
+{"input": "How do I make authentic crème caramel?", "label": "not_related"}
+{"input": "What is the First Foundation's purpose in Asimov's series?", "label": "not_related"}
+{"input": "What is a mortgage rate and how is it determined?", "label": "not_related"}
+{"input": "How does the skeletal system produce blood cells?", "label": "not_related"}
+{"input": "Who is T'Pau and what is her role in Vulcan society?", "label": "related"}
+{"input": "What is the significance of the Battle of the Maxia system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-O?", "label": "related"}
+{"input": "What is a Vulcan IDIC and what does it represent?", "label": "related"}
+{"input": "Who is Morn and what is his role on Deep Space Nine?", "label": "related"}
+{"input": "What is the purpose of the phase discriminator technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Malon?", "label": "related"}
+{"input": "What is a Tzenkethi and what are their characteristics?", "label": "related"}
+{"input": "Who is Vedek Shakaar and what is his role in Bajoran politics?", "label": "related"}
+{"input": "What is the significance of the phrase 'There are four lights'?", "label": "related"}
+{"input": "What is a Breen energy weapon and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop Shinzon's thalaron weapon?", "label": "related"}
+{"input": "What is the purpose of the metaphasic radiation technology?", "label": "related"}
+{"input": "Who is Juliana Tainer and what is her relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 18 phaser and a compression phaser turret?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Hydra sector?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-O?", "label": "related"}
+{"input": "What is a Ferengi profit margin and how is it calculated?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Kurn?", "label": "related"}
+{"input": "What is the purpose of the chroniton particle technology?", "label": "related"}
+{"input": "Who is Tuvok and what is his Vulcan heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Vengeance and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Nilsson?", "label": "related"}
+{"input": "What is the difference between a warp drive and a coaxial warp drive?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway diagnostic sequence?", "label": "related"}
+{"input": "Who is the leader of the Talaxian government?", "label": "related"}
+{"input": "Are there droidekas in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's fan speed?", "label": "not_related"}
+{"input": "What is the largest sound in the world?", "label": "not_related"}
+{"input": "What are Ixians in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect meringue?", "label": "not_related"}
+{"input": "What is the New Republic in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for gas?", "label": "not_related"}
+{"input": "What is robotics and how does it work?", "label": "not_related"}
+{"input": "What are the differences between COBOL and Python programming languages?", "label": "not_related"}
+{"input": "Who won the US Open in 2023?", "label": "not_related"}
+{"input": "What is the plot of Dark City?", "label": "not_related"}
+{"input": "How do I check my car's battery terminals?", "label": "not_related"}
+{"input": "What is the process of pinocytosis?", "label": "not_related"}
+{"input": "Who wrote The Aeneid?", "label": "not_related"}
+{"input": "How do you play Spades?", "label": "not_related"}
+{"input": "What is a white hole and how does it form?", "label": "not_related"}
+{"input": "What are effective time management techniques?", "label": "not_related"}
+{"input": "What is Barad-dûr in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do occluded fronts form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's system information?", "label": "not_related"}
+{"input": "What were the main events of the Iran-Iraq War?", "label": "not_related"}
+{"input": "What are the benefits of dancing?", "label": "not_related"}
+{"input": "Who invented the sundial?", "label": "not_related"}
+{"input": "What is the difference between a downpour and a deluge?", "label": "not_related"}
+{"input": "How do I make authentic flan?", "label": "not_related"}
+{"input": "What is the Mule's identity in the Foundation series?", "label": "not_related"}
+{"input": "What is an interest rate and how is it determined?", "label": "not_related"}
+{"input": "How does the integumentary system protect against UV radiation?", "label": "not_related"}
+{"input": "Who is T'Pol and what is her role on the Enterprise NX-01?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cheron system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-P?", "label": "related"}
+{"input": "What is a Vulcan mind meld and how does it work?", "label": "related"}
+{"input": "Who is Rom and what is his relationship to Quark?", "label": "related"}
+{"input": "What is the purpose of the graviton beam technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Voth?", "label": "related"}
+{"input": "What is a Voth and what are their characteristics?", "label": "related"}
+{"input": "Who is Vedek Bareil and what is his relationship to Kira Nerys?", "label": "related"}
+{"input": "What is the significance of the phrase 'Make it so'?", "label": "related"}
+{"input": "What is a Cardassian disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield generator?", "label": "related"}
+{"input": "Who is Soong and what is his contribution to android technology?", "label": "related"}
+{"input": "What is the difference between a Type 19 phaser and a compression phaser array?", "label": "related"}
+{"input": "What is the significance of the Battle of the Gamma Quadrant?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-P?", "label": "related"}
+{"input": "What is a Ferengi contract and what are its typical clauses?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Trip Tucker?", "label": "related"}
+{"input": "What is the purpose of the tachyon pulse technology?", "label": "related"}
+{"input": "Who is Locutus and what is his Borg designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Honor and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Owo?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway power source?", "label": "related"}
+{"input": "Who is the leader of the Kazon government?", "label": "related"}
+{"input": "Are there clone troopers in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's network adapter status?", "label": "not_related"}
+{"input": "What is the largest inlet in the world?", "label": "not_related"}
+{"input": "What are Bene Tleilax in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect crème anglaise?", "label": "not_related"}
+{"input": "What is the Separatists in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for diarrhea?", "label": "not_related"}
+{"input": "What is computer graphics and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Assembly and Python programming languages?", "label": "not_related"}
+{"input": "Who won the PGA Championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of Gattaca?", "label": "not_related"}
+{"input": "How do I check my car's alternator?", "label": "not_related"}
+{"input": "What is the process of phagocytosis?", "label": "not_related"}
+{"input": "Who wrote The Republic?", "label": "not_related"}
+{"input": "How do you play Euchre?", "label": "not_related"}
+{"input": "What is a red dwarf star and how does it form?", "label": "not_related"}
+{"input": "What are effective presentation skills?", "label": "not_related"}
+{"input": "What is the Grey Havens in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do squall lines form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's BIOS version?", "label": "not_related"}
+{"input": "What were the main events of the Yom Kippur War?", "label": "not_related"}
+{"input": "What are the benefits of kickboxing?", "label": "not_related"}
+{"input": "Who invented the hourglass?", "label": "not_related"}
+{"input": "What is the difference between a shower and a storm?", "label": "not_related"}
+{"input": "How do I make authentic tres leches cake?", "label": "not_related"}
+{"input": "What is the Second Foundation's secret in Asimov's series?", "label": "not_related"}
+{"input": "What is a prime rate and how is it determined?", "label": "not_related"}
+{"input": "How does the respiratory system exchange gases?", "label": "not_related"}
+{"input": "Who is T'Pring and what is her relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian border?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-Q?", "label": "related"}
+{"input": "What is a Vulcan kal-if-fee and what is its purpose?", "label": "related"}
+{"input": "Who is Ziyal and what is her relationship to Dukat?", "label": "related"}
+{"input": "What is the purpose of the graviton torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Turei?", "label": "related"}
+{"input": "What is a Son'a and what is their relationship with the Ba'ku?", "label": "related"}
+{"input": "Who is Vedek Bareil and what is his role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Engage'?", "label": "related"}
+{"input": "What is a Cardassian phase-disruptor and how does it work?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop Shinzon's thalaron weapon?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield array?", "label": "related"}
+{"input": "Who is Noonien Soong and what is his relationship to Data?", "label": "related"}
+{"input": "What is the difference between a Type 20 phaser and a compression phaser cannon?", "label": "related"}
+{"input": "What is the significance of the Battle of the Khitomer system?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-Q?", "label": "related"}
+{"input": "What is a Ferengi profit and what determines its value?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Kurn?", "label": "related"}
+{"input": "What is the purpose of the chroniton torpedo technology?", "label": "related"}
+{"input": "Who is Azan and what is his species?", "label": "related"}
+{"input": "What is a Klingon Rite of Challenge and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of R.A. Bryce?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway maintenance protocol?", "label": "related"}
+{"input": "Who is the leader of the Vidiian government?", "label": "related"}
+{"input": "Are there stormtroopers in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's processor speed?", "label": "not_related"}
+{"input": "What is the largest estuary in the world?", "label": "not_related"}
+{"input": "What are Ixian machines in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect crème fraîche?", "label": "not_related"}
+{"input": "What is the Confederacy of Independent Systems in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for GERD?", "label": "not_related"}
+{"input": "What is data science and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Pascal and Python programming languages?", "label": "not_related"}
+{"input": "Who won the British Open in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Day the Earth Stood Still?", "label": "not_related"}
+{"input": "How do I check my car's serpentine belt?", "label": "not_related"}
+{"input": "What is the process of receptor-mediated endocytosis?", "label": "not_related"}
+{"input": "Who wrote The Metamorphoses?", "label": "not_related"}
+{"input": "How do you play Cribbage?", "label": "not_related"}
+{"input": "What is a red giant and how does it form?", "label": "not_related"}
+{"input": "What are effective listening skills?", "label": "not_related"}
+{"input": "What is the White Tree in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do derechos form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's installed programs?", "label": "not_related"}
+{"input": "What were the main causes of the Six-Day War?", "label": "not_related"}
+{"input": "What are the benefits of boxing?", "label": "not_related"}
+{"input": "Who invented the astrolabe?", "label": "not_related"}
+{"input": "What is the difference between a mistral and a sirocco?", "label": "not_related"}
+{"input": "How do I make authentic dulce de leche?", "label": "not_related"}
+{"input": "What is the Seldon Plan's purpose in Asimov's series?", "label": "not_related"}
+{"input": "What is a discount rate and how is it determined?", "label": "not_related"}
+{"input": "How does the digestive system break down food?", "label": "not_related"}
+{"input": "Who is Saavik and what is her Vulcan heritage?", "label": "related"}
+{"input": "What is the significance of the Battle of the Betazed system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-R?", "label": "related"}
+{"input": "What is a Vulcan pon farr and what does it represent?", "label": "related"}
+{"input": "Who is Tora Ziyal and what is her relationship to Dukat?", "label": "related"}
+{"input": "What is the purpose of the quantum torpedo technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Tholians?", "label": "related"}
+{"input": "What is a Reman and what is their relationship with the Romulans?", "label": "related"}
+{"input": "Who is Kai Winn and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Fascinating'?", "label": "related"}
+{"input": "What is a Klingon bat'leth and how is it used in combat?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg?", "label": "related"}
+{"input": "What is the purpose of the ablative armor generator?", "label": "related"}
+{"input": "Who is B'Elanna Torres and what is her Klingon heritage?", "label": "related"}
+{"input": "What is the difference between a Type 21 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian Union?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-R?", "label": "related"}
+{"input": "What is a Ferengi Rules of Acquisition and how many are there?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tora Ziyal?", "label": "related"}
+{"input": "What is the purpose of the polaron beam technology?", "label": "related"}
+{"input": "Who is Seven of Nine and what is her Borg designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Ascension and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Keyla Detmer?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway activation sequence?", "label": "related"}
+{"input": "Who is the leader of the Breen government?", "label": "related"}
+{"input": "Are there droids in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's memory usage?", "label": "not_related"}
+{"input": "What is the largest bay in the world?", "label": "not_related"}
+{"input": "What are Face Dancers in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect hollandaise sauce?", "label": "not_related"}
+{"input": "What is the Galactic Empire in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for indigestion?", "label": "not_related"}
+{"input": "What is artificial intelligence and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Lisp and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Super Bowl in 2023?", "label": "not_related"}
+{"input": "What is the plot of Forbidden Planet?", "label": "not_related"}
+{"input": "How do I check my car's transmission fluid?", "label": "not_related"}
+{"input": "What is the process of pinocytosis?", "label": "not_related"}
+{"input": "Who wrote Beowulf?", "label": "not_related"}
+{"input": "How do you play Bridge?", "label": "not_related"}
+{"input": "What is a white dwarf and how does it form?", "label": "not_related"}
+{"input": "What are effective negotiation skills?", "label": "not_related"}
+{"input": "What is the Shire in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do haboobs form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's disk space?", "label": "not_related"}
+{"input": "What were the main events of the Vietnam War?", "label": "not_related"}
+{"input": "What are the benefits of martial arts?", "label": "not_related"}
+{"input": "Who invented the barometer?", "label": "not_related"}
+{"input": "What is the difference between a haboob and a dust storm?", "label": "not_related"}
+{"input": "How do I make authentic tiramisu?", "label": "not_related"}
+{"input": "What is the purpose of the Second Foundation in Asimov's series?", "label": "not_related"}
+{"input": "What is a federal funds rate and how is it determined?", "label": "not_related"}
+{"input": "How does the nervous system transmit signals?", "label": "not_related"}
+{"input": "Who is Valeris and what is her Vulcan heritage?", "label": "related"}
+{"input": "What is the significance of the Battle of the Veridian system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-S?", "label": "related"}
+{"input": "What is a Vulcan katra and what is its purpose?", "label": "related"}
+{"input": "Who is Garak and what is his role in Cardassian politics?", "label": "related"}
+{"input": "What is the purpose of the isolytic burst technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Suliban?", "label": "related"}
+{"input": "What is a Jem'Hadar and what is their relationship with the Founders?", "label": "related"}
+{"input": "Who is Opaka Sulan and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Boldly go where no one has gone before'?", "label": "related"}
+{"input": "What is a Klingon d'k tahg and how is it used in combat?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Son'a?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield technology?", "label": "related"}
+{"input": "Who is Kes and what is her Ocampa heritage?", "label": "related"}
+{"input": "What is the difference between a Type 22 phaser and a compression phaser pistol?", "label": "related"}
+{"input": "What is the significance of the Battle of the First Federation?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-S?", "label": "related"}
+{"input": "What is a Ferengi Grand Nagus and what is their role?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Kes?", "label": "related"}
+{"input": "What is the purpose of the nadion pulse technology?", "label": "related"}
+{"input": "Who is Neelix and what is his Talaxian heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Mauk-to-Vor and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Sylvia Tilly?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp beam?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway diagnostic protocol?", "label": "related"}
+{"input": "Who is the leader of the Jem'Hadar government?", "label": "related"}
+{"input": "Are there lightsabers in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's CPU temperature?", "label": "not_related"}
+{"input": "What is the largest gulf in the world?", "label": "not_related"}
+{"input": "What are Guild Navigators in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect béarnaise sauce?", "label": "not_related"}
+{"input": "What is the Rebel Alliance in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for nausea?", "label": "not_related"}
+{"input": "What is machine vision and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Go and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Europa League in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Matrix?", "label": "not_related"}
+{"input": "How do I check my car's brake fluid?", "label": "not_related"}
+{"input": "What is the process of exocytosis?", "label": "not_related"}
+{"input": "Who wrote One Hundred Years of Solitude?", "label": "not_related"}
+{"input": "How do you play Hearts?", "label": "not_related"}
+{"input": "What is a neutron star and how does it form?", "label": "not_related"}
+{"input": "What are effective conflict resolution skills?", "label": "not_related"}
+{"input": "What is Rivendell in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do microbursts form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's graphics card?", "label": "not_related"}
+{"input": "What were the main events of the Korean War?", "label": "not_related"}
+{"input": "What are the benefits of yoga?", "label": "not_related"}
+{"input": "Who invented the thermometer?", "label": "not_related"}
+{"input": "What is the difference between a microburst and a downburst?", "label": "not_related"}
+{"input": "How do I make authentic baklava?", "label": "not_related"}
+{"input": "What is the role of the Mule in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is an exchange rate and how is it determined?", "label": "not_related"}
+{"input": "How does the endocrine system regulate hormones?", "label": "not_related"}
+{"input": "Who is Michael Burnham and what is her relationship to Spock?", "label": "related"}
+{"input": "What is the significance of the Battle of the Alamo system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-T?", "label": "related"}
+{"input": "What is a Vulcan plomeek soup and what is its significance?", "label": "related"}
+{"input": "Who is Dukat and what is his role in the Dominion?", "label": "related"}
+{"input": "What is the purpose of the phase cloak technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Talosians?", "label": "related"}
+{"input": "What is a Changeling and what is their relationship with the Dominion?", "label": "related"}
+{"input": "Who is Kai Winn and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Set a course for home'?", "label": "related"}
+{"input": "What is a Klingon mek'leth and how is it used in combat?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Ba'ku?", "label": "related"}
+{"input": "What is the purpose of the metaphasic radiation technology?", "label": "related"}
+{"input": "Who is Chakotay and what is his Native American heritage?", "label": "related"}
+{"input": "What is the difference between a Type 23 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian border?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-T?", "label": "related"}
+{"input": "What is a Ferengi Lobe and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tora Ziyal?", "label": "related"}
+{"input": "What is the purpose of the tetryon beam technology?", "label": "related"}
+{"input": "Who is The Doctor and what is his EMH designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Passage and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Michael Burnham?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp corridor?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway calibration sequence?", "label": "related"}
+{"input": "Who is the leader of the Dominion government?", "label": "related"}
+{"input": "Are there Sith in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's RAM capacity?", "label": "not_related"}
+{"input": "What is the largest sea in the world?", "label": "not_related"}
+{"input": "What are Sandworms in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect mayonnaise?", "label": "not_related"}
+{"input": "What is the New Republic in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for motion sickness?", "label": "not_related"}
+{"input": "What is natural language processing and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Swift and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Copa América in 2021?", "label": "not_related"}
+{"input": "What is the plot of 2001: A Space Odyssey?", "label": "not_related"}
+{"input": "How do I check my car's power steering fluid?", "label": "not_related"}
+{"input": "What is the process of osmosis?", "label": "not_related"}
+{"input": "Who wrote Anna Karenina?", "label": "not_related"}
+{"input": "How do you play Spades?", "label": "not_related"}
+{"input": "What is a pulsar and how does it form?", "label": "not_related"}
+{"input": "What are effective time management skills?", "label": "not_related"}
+{"input": "What is Mordor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do tornadoes form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's motherboard model?", "label": "not_related"}
+{"input": "What were the main events of World War I?", "label": "not_related"}
+{"input": "What are the benefits of meditation?", "label": "not_related"}
+{"input": "Who invented the telegraph?", "label": "not_related"}
+{"input": "What is the difference between a tornado and a cyclone?", "label": "not_related"}
+{"input": "How do I make authentic cannoli?", "label": "not_related"}
+{"input": "What is the role of Hari Seldon in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is inflation and how is it measured?", "label": "not_related"}
+{"input": "How does the immune system fight infections?", "label": "not_related"}
+{"input": "Who is Alexander Rozhenko and what is his Klingon heritage?", "label": "related"}
+{"input": "What is the significance of the Battle of the Procyon system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-U?", "label": "related"}
+{"input": "What is a Vulcan suus mahna and what is its purpose?", "label": "related"}
+{"input": "Who is Martok and what is his role in Klingon politics?", "label": "related"}
+{"input": "What is the purpose of the deflector dish technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Andorians?", "label": "related"}
+{"input": "What is a Trill and what is their relationship with symbionts?", "label": "related"}
+{"input": "Who is Shakaar Edon and what is his role in Bajoran politics?", "label": "related"}
+{"input": "What is the significance of the phrase 'To boldly go where no man has gone before'?", "label": "related"}
+{"input": "What is a Klingon disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg?", "label": "related"}
+{"input": "What is the purpose of the multiphasic shield technology?", "label": "related"}
+{"input": "Who is Tom Paris and what is his role on Voyager?", "label": "related"}
+{"input": "What is the difference between a Type 24 phaser and a compression phaser array?", "label": "related"}
+{"input": "What is the significance of the Battle of the Romulan Neutral Zone?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-U?", "label": "related"}
+{"input": "What is a Ferengi Oo-mox and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Trip Tucker?", "label": "related"}
+{"input": "What is the purpose of the subspace communication technology?", "label": "related"}
+{"input": "Who is Harry Kim and what is his role on Voyager?", "label": "related"}
+{"input": "What is a Klingon Rite of Challenge and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Saru?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp aperture?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway security protocol?", "label": "related"}
+{"input": "Who is the leader of the Andorian government?", "label": "related"}
+{"input": "Are there Jedi in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's hard drive health?", "label": "not_related"}
+{"input": "What is the largest ocean in the world?", "label": "not_related"}
+{"input": "What are Mentats in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect aioli?", "label": "not_related"}
+{"input": "What is the First Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for anxiety?", "label": "not_related"}
+{"input": "What is deep learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Kotlin and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Olympics in 2024?", "label": "not_related"}
+{"input": "What is the plot of Interstellar?", "label": "not_related"}
+{"input": "How do I check my car's coolant level?", "label": "not_related"}
+{"input": "What is the process of diffusion?", "label": "not_related"}
+{"input": "Who wrote Crime and Punishment?", "label": "not_related"}
+{"input": "How do you play Solitaire?", "label": "not_related"}
+{"input": "What is a quasar and how does it form?", "label": "not_related"}
+{"input": "What are effective stress management techniques?", "label": "not_related"}
+{"input": "What is Gondor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do hurricanes form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's power supply?", "label": "not_related"}
+{"input": "What were the main events of World War II?", "label": "not_related"}
+{"input": "What are the benefits of swimming?", "label": "not_related"}
+{"input": "Who invented the camera?", "label": "not_related"}
+{"input": "What is the difference between a hurricane and a typhoon?", "label": "not_related"}
+{"input": "How do I make authentic gelato?", "label": "not_related"}
+{"input": "What is the role of Gaal Dornick in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is GDP and how is it calculated?", "label": "not_related"}
+{"input": "How does the lymphatic system function?", "label": "not_related"}
+{"input": "Who is K'mpec and what is his role in Klingon politics?", "label": "related"}
+{"input": "What is the significance of the Battle of the Tzenkethi system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-V?", "label": "related"}
+{"input": "What is a Vulcan meditation and what is its purpose?", "label": "related"}
+{"input": "Who is Elim Garak and what is his role in Cardassian politics?", "label": "related"}
+{"input": "What is the purpose of the interphasic cloak technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Tzenkethi?", "label": "related"}
+{"input": "What is a Bajoran and what is their relationship with the Prophets?", "label": "related"}
+{"input": "Who is Vedek Winn and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'The needs of the many outweigh the needs of the few, or the one'?", "label": "related"}
+{"input": "What is a Romulan disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Son'a?", "label": "related"}
+{"input": "What is the purpose of the regenerative shield technology?", "label": "related"}
+{"input": "Who is Torres and what is her Klingon heritage?", "label": "related"}
+{"input": "What is the difference between a Type 25 phaser and a compression phaser cannon?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian Union?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-V?", "label": "related"}
+{"input": "What is a Ferengi Rules of Acquisition and how many are there?", "label": "related"}
+{"input": "Which Star Trek episode features the death of K'Ehleyr?", "label": "related"}
+{"input": "What is the purpose of the gravimetric torpedo technology?", "label": "related"}
+{"input": "Who is Sek and what is his Vulcan heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Honor and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Philippa Georgiou?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp coil?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway encryption protocol?", "label": "related"}
+{"input": "Who is the leader of the Tzenkethi government?", "label": "related"}
+{"input": "Are there X-wings in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's fan speed?", "label": "not_related"}
+{"input": "What is the largest lake in the world?", "label": "not_related"}
+{"input": "What are Bene Gesserit in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect pesto?", "label": "not_related"}
+{"input": "What is the Resistance in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for depression?", "label": "not_related"}
+{"input": "What is neural networks and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Rust and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Champions League in 2023?", "label": "not_related"}
+{"input": "What is the plot of Arrival?", "label": "not_related"}
+{"input": "How do I check my car's oil level?", "label": "not_related"}
+{"input": "What is the process of active transport?", "label": "not_related"}
+{"input": "Who wrote The Brothers Karamazov?", "label": "not_related"}
+{"input": "How do you play Go Fish?", "label": "not_related"}
+{"input": "What is a black hole and how does it form?", "label": "not_related"}
+{"input": "What are effective problem-solving techniques?", "label": "not_related"}
+{"input": "What is Rohan in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do blizzards form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's USB ports?", "label": "not_related"}
+{"input": "What were the main events of the Cold War?", "label": "not_related"}
+{"input": "What are the benefits of running?", "label": "not_related"}
+{"input": "Who invented the refrigerator?", "label": "not_related"}
+{"input": "What is the difference between a blizzard and a snowstorm?", "label": "not_related"}
+{"input": "How do I make authentic crème brûlée?", "label": "not_related"}
+{"input": "What is the role of Salvor Hardin in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is unemployment rate and how is it calculated?", "label": "not_related"}
+{"input": "How does the skeletal system support the body?", "label": "not_related"}
+{"input": "Who is Quark and what is his role in Ferengi society?", "label": "related"}
+{"input": "What is the significance of the Battle of the Badlands?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-W?", "label": "related"}
+{"input": "What is a Vulcan katric ark and what is its purpose?", "label": "related"}
+{"input": "Who is Gul Dukat and what is his role in Cardassian politics?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Gorn?", "label": "related"}
+{"input": "What is a Cardassian and what is their relationship with the Dominion?", "label": "related"}
+{"input": "Who is Vedek Opaka and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Logic is the beginning of wisdom'?", "label": "related"}
+{"input": "What is a Jem'Hadar disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Borg Queen?", "label": "related"}
+{"input": "What is the purpose of the ablative armor technology?", "label": "related"}
+{"input": "Who is Annika Hansen and what is her Borg designation?", "label": "related"}
+{"input": "What is the difference between a Type 26 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian Union?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-W?", "label": "related"}
+{"input": "What is a Ferengi Grand Nagus and what is their role?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Lal?", "label": "related"}
+{"input": "What is the purpose of the quantum torpedo technology?", "label": "related"}
+{"input": "Who is Kes and what is her role on Voyager?", "label": "related"}
+{"input": "What is a Klingon Rite of Mauk-to-Vor and what does it involve?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Ash Tyler?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp conduit?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway power source?", "label": "related"}
+{"input": "Who is the leader of the Breen government?", "label": "related"}
+{"input": "Are there lightsabers in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's CPU temperature?", "label": "not_related"}
+{"input": "What is the largest river in the world?", "label": "not_related"}
+{"input": "What are Spice Melange in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect hollandaise sauce?", "label": "not_related"}
+{"input": "What is the Galactic Empire in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for migraines?", "label": "not_related"}
+{"input": "What is machine learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Go and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Formula 1 World Championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Matrix?", "label": "not_related"}
+{"input": "How do I check my car's transmission fluid?", "label": "not_related"}
+{"input": "What is the process of photosynthesis?", "label": "not_related"}
+{"input": "Who wrote The Grapes of Wrath?", "label": "not_related"}
+{"input": "How do you play Chess?", "label": "not_related"}
+{"input": "What is a neutron star and how does it form?", "label": "not_related"}
+{"input": "What are effective communication skills?", "label": "not_related"}
+{"input": "What is Rivendell in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do earthquakes form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's network adapter?", "label": "not_related"}
+{"input": "What were the main events of the Renaissance?", "label": "not_related"}
+{"input": "What are the benefits of yoga?", "label": "not_related"}
+{"input": "Who invented the airplane?", "label": "not_related"}
+{"input": "What is the difference between an earthquake and a tremor?", "label": "not_related"}
+{"input": "How do I make authentic chocolate mousse?", "label": "not_related"}
+{"input": "What is the role of Eto Demerzel in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is interest rate and how is it calculated?", "label": "not_related"}
+{"input": "How does the circulatory system function?", "label": "not_related"}
+{"input": "Who is Rom and what is his role in Ferengi society?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cheron system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-X?", "label": "related"}
+{"input": "What is a Vulcan IDIC and what does it represent?", "label": "related"}
+{"input": "Who is the Female Changeling and what is her role in the Dominion?", "label": "related"}
+{"input": "What is the purpose of the phase cloak technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Vorta?", "label": "related"}
+{"input": "What is a Jem'Hadar and what is their relationship with the Founders?", "label": "related"}
+{"input": "Who is Vedek Shakaar and what is his role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Without followers, evil cannot spread'?", "label": "related"}
+{"input": "What is a Cardassian disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's encounter with the Ba'ku?", "label": "related"}
+{"input": "What is the purpose of the metaphasic radiation technology?", "label": "related"}
+{"input": "Who is Locutus of Borg and what is his designation?", "label": "related"}
+{"input": "What is the difference between a Type 27 phaser and a compression phaser pistol?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian border?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-X?", "label": "related"}
+{"input": "What is a Ferengi Lobe and what is its purpose?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Tora Ziyal?", "label": "related"}
+{"input": "What is the purpose of the tetryon beam technology?", "label": "related"}
+{"input": "Who is The Doctor and what is his EMH designation?", "label": "related"}
+{"input": "What is a Klingon Rite of Passage and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Sylvia Tilly?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp network?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway calibration sequence?", "label": "related"}
+{"input": "Who is the leader of the Dominion government?", "label": "related"}
+{"input": "Are there droids in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's graphics card?", "label": "not_related"}
+{"input": "What is the largest mountain in the world?", "label": "not_related"}
+{"input": "What are Kwisatz Haderach in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect béarnaise sauce?", "label": "not_related"}
+{"input": "What is the Rebel Alliance in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for headaches?", "label": "not_related"}
+{"input": "What is artificial intelligence and how does it work?", "label": "not_related"}
+{"input": "What are the differences between Java and Python programming languages?", "label": "not_related"}
+{"input": "Who won the French Open in 2023?", "label": "not_related"}
+{"input": "What is the plot of Blade Runner?", "label": "not_related"}
+{"input": "How do I check my car's brake fluid?", "label": "not_related"}
+{"input": "What is the process of cellular respiration?", "label": "not_related"}
+{"input": "Who wrote The Lord of the Rings?", "label": "not_related"}
+{"input": "How do you play Monopoly?", "label": "not_related"}
+{"input": "What is a white dwarf and how does it form?", "label": "not_related"}
+{"input": "What are effective negotiation skills?", "label": "not_related"}
+{"input": "What is Isengard in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do tsunamis form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's sound card?", "label": "not_related"}
+{"input": "What were the main events of the Industrial Revolution?", "label": "not_related"}
+{"input": "What are the benefits of cycling?", "label": "not_related"}
+{"input": "Who invented the computer?", "label": "not_related"}
+{"input": "What is the difference between a tsunami and a tidal wave?", "label": "not_related"}
+{"input": "How do I make authentic chocolate soufflé?", "label": "not_related"}
+{"input": "What is the role of Cleon I in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is exchange rate and how is it calculated?", "label": "not_related"}
+{"input": "How does the respiratory system function?", "label": "not_related"}
+{"input": "Who is Nog and what is his role in Starfleet?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian Union?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-Y?", "label": "related"}
+{"input": "What is a Vulcan pon farr and what does it represent?", "label": "related"}
+{"input": "Who is Lursa and what is her role in Klingon politics?", "label": "related"}
+{"input": "What is the purpose of the isokinetic cannon technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Species 8472?", "label": "related"}
+{"input": "What is a Founder and what is their relationship with the Dominion?", "label": "related"}
+{"input": "Who is Vedek Winn and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'Set a course for home'?", "label": "related"}
+{"input": "What is a Klingon disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop Shinzon's thalaron weapon?", "label": "related"}
+{"input": "What is the purpose of the metaphasic shield technology?", "label": "related"}
+{"input": "Who is B'Elanna and what is her Klingon heritage?", "label": "related"}
+{"input": "What is the difference between a Type 28 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Cardassian border?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-Y?", "label": "related"}
+{"input": "What is a Ferengi Rules of Acquisition and how many are there?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Spot?", "label": "related"}
+{"input": "What is the purpose of the polaron beam technology?", "label": "related"}
+{"input": "Who is T'Pol and what is her Vulcan heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Succession and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Michael Burnham?", "label": "related"}
+{"input": "What is the difference between a warp drive and a coaxial warp drive?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway activation sequence?", "label": "related"}
+{"input": "Who is the leader of the Cardassian government?", "label": "related"}
+{"input": "Are there X-wings in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's RAM?", "label": "not_related"}
+{"input": "What is the deepest ocean in the world?", "label": "not_related"}
+{"input": "What are Bene Gesserit in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect mayonnaise?", "label": "not_related"}
+{"input": "What is the Jedi Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for anxiety?", "label": "not_related"}
+{"input": "What is deep learning and how does it work?", "label": "not_related"}
+{"input": "What are the differences between C++ and Python programming languages?", "label": "not_related"}
+{"input": "Who won the Formula 1 World Championship in 2023?", "label": "not_related"}
+{"input": "What is the plot of The Terminator?", "label": "not_related"}
+{"input": "How do I check my car's oil level?", "label": "not_related"}
+{"input": "What is the process of mitosis?", "label": "not_related"}
+{"input": "Who wrote The Hobbit?", "label": "not_related"}
+{"input": "How do you play Scrabble?", "label": "not_related"}
+{"input": "What is a black hole and how does it form?", "label": "not_related"}
+{"input": "What are effective leadership skills?", "label": "not_related"}
+{"input": "What is Mordor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do hurricanes form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's hard drive?", "label": "not_related"}
+{"input": "What were the main events of World War I?", "label": "not_related"}
+{"input": "What are the benefits of swimming?", "label": "not_related"}
+{"input": "Who invented the internet?", "label": "not_related"}
+{"input": "What is the difference between a hurricane and a typhoon?", "label": "not_related"}
+{"input": "How do I make authentic crème anglaise?", "label": "not_related"}
+{"input": "What is the role of Raych Seldon in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is inflation rate and how is it calculated?", "label": "not_related"}
+{"input": "How does the digestive system function?", "label": "not_related"}
+{"input": "Who is Leeta and what is her role in Bajoran society?", "label": "related"}
+{"input": "What is the significance of the Battle of the Procyon system?", "label": "related"}
+{"input": "Which Star Trek series features the USS Enterprise NCC-1701-Z?", "label": "related"}
+{"input": "What is a Vulcan mind meld and what does it involve?", "label": "related"}
+{"input": "Who is Worf and what is his role in Klingon society?", "label": "related"}
+{"input": "What is the purpose of the deflector dish technology?", "label": "related"}
+{"input": "Which episode features the first appearance of the Borg?", "label": "related"}
+{"input": "What is a Cardassian and what is their relationship with the Federation?", "label": "related"}
+{"input": "Who is Vedek Kira and what is her role in Bajoran religion?", "label": "related"}
+{"input": "What is the significance of the phrase 'To boldly go where no one has gone before'?", "label": "related"}
+{"input": "What is a Romulan disruptor and how does it compare to a phaser?", "label": "related"}
+{"input": "Which Star Trek movie features the Enterprise-E's mission to stop the Borg invasion?", "label": "related"}
+{"input": "What is the purpose of the ablative armor technology?", "label": "related"}
+{"input": "Who is Geordi La Forge and what is his VISOR technology?", "label": "related"}
+{"input": "What is the difference between a Type 29 phaser and a compression phaser rifle?", "label": "related"}
+{"input": "What is the significance of the Battle of the Omarion Nebula?", "label": "related"}
+{"input": "Who is the captain of the USS Enterprise NCC-1701-Z?", "label": "related"}
+{"input": "What is a Ferengi Rules of Acquisition Rule 1 and what does it state?", "label": "related"}
+{"input": "Which Star Trek episode features the death of Yar?", "label": "related"}
+{"input": "What is the purpose of the graviton beam technology?", "label": "related"}
+{"input": "Who is Spock and what is his Vulcan heritage?", "label": "related"}
+{"input": "What is a Klingon Rite of Mauk-to-Vor and what does it require?", "label": "related"}
+{"input": "Which Star Trek series introduced the character of Saru?", "label": "related"}
+{"input": "What is the difference between a warp drive and a transwarp aperture?", "label": "related"}
+{"input": "What is the significance of the Iconian gateway power source?", "label": "related"}
+{"input": "Who is the leader of the Romulan government?", "label": "related"}
+{"input": "Are there Death Stars in Star Trek?", "label": "not_related"}
+{"input": "How do I check my computer's motherboard?", "label": "not_related"}
+{"input": "What is the highest peak in the world?", "label": "not_related"}
+{"input": "What are Sandworms in the Dune series?", "label": "not_related"}
+{"input": "How do I make perfect aioli?", "label": "not_related"}
+{"input": "What is the Sith Order in Star Wars?", "label": "not_related"}
+{"input": "What are natural remedies for insomnia?", "label": "not_related"}
+{"input": "What is neural networks and how does it work?", "label": "not_related"}
+{"input": "What are the differences between JavaScript and Python programming languages?", "label": "not_related"}
+{"input": "Who won the World Cup in 2018?", "label": "not_related"}
+{"input": "What is the plot of Alien?", "label": "not_related"}
+{"input": "How do I check my car's tire pressure?", "label": "not_related"}
+{"input": "What is the process of meiosis?", "label": "not_related"}
+{"input": "Who wrote The Silmarillion?", "label": "not_related"}
+{"input": "How do you play Risk?", "label": "not_related"}
+{"input": "What is a supernova and how does it form?", "label": "not_related"}
+{"input": "What are effective time management skills?", "label": "not_related"}
+{"input": "What is Gondor in The Lord of the Rings?", "label": "not_related"}
+{"input": "How do tornadoes form and what causes them?", "label": "not_related"}
+{"input": "How do I check my computer's power supply?", "label": "not_related"}
+{"input": "What were the main events of World War II?", "label": "not_related"}
+{"input": "What are the benefits of running?", "label": "not_related"}
+{"input": "Who invented the television?", "label": "not_related"}
+{"input": "What is the difference between a tornado and a cyclone?", "label": "not_related"}
+{"input": "How do I make authentic tiramisu?", "label": "not_related"}
+{"input": "What is the role of Hober Mallow in Asimov's Foundation series?", "label": "not_related"}
+{"input": "What is GDP and how is it calculated?", "label": "not_related"}
+{"input": "How does the nervous system function?", "label": "not_related"}
+
