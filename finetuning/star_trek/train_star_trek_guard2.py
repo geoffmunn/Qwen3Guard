@@ -77,7 +77,11 @@ model = AutoModelForSequenceClassification.from_pretrained(
     quantization_config=quantization_config,
 )
 
-# Align model config with tokenizer
+# 🔥 CRITICAL: Prepare model for 4-bit training with FP32 head
+from peft import prepare_model_for_kbit_training
+model = prepare_model_for_kbit_training(model, use_gradient_checkpointing=False)
+
+# Align config
 model.config.pad_token_id = tokenizer.pad_token_id
 model.config.bos_token_id = tokenizer.bos_token_id
 model.config.eos_token_id = tokenizer.eos_token_id
