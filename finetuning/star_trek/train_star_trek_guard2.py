@@ -160,7 +160,7 @@ trainer.save_model(OUTPUT_DIR)
 tokenizer.save_pretrained(OUTPUT_DIR)
 print(f"✅ Model saved to {OUTPUT_DIR}")
 
-# ===== OPTIONAL: Test the model =====
+# ===== OPTIONAL: Test the fine-tuned model =====
 print("\n🧪 Testing the fine-tuned model...")
 test_inputs = [
     "What is the Prime Directive in Star Trek?",
@@ -169,17 +169,25 @@ test_inputs = [
     "What is 2 + 2?",
 ]
 
-model.eval()
-for text in test_inputs:
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding=True, max_length=MAX_LENGTH)
-    
-    with torch.no_grad():
+model.eval()  # Set to evaluation mode
+with torch.no_grad():
+    for text in test_inputs:
+        inputs = tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            padding=True,
+            max_length=MAX_LENGTH
+        )
+        # ✅ Move inputs to the same device as the model
+        inputs = {k: v.to(model.device) for k, v in inputs.items()}
+
         outputs = model(**inputs)
         predictions = torch.nn.functional.softmax(outputs.logits, dim=-1)
         predicted_class_id = predictions.argmax().item()
         confidence = predictions.max().item()
         predicted_label = ID2LABEL[predicted_class_id]
-    
-    print(f"Input: {text}")
-    print(f"Prediction: {predicted_label} (confidence: {confidence:.3f})")
-    print("---")
+
+        print(f"Input: {text}")
+        print(f"Prediction: {predicted_label} (confidence: {confidence:.3f})")
+        print("---")
