@@ -12,8 +12,7 @@ from transformers import (
 from peft import LoraConfig, get_peft_model, TaskType
 
 # ===== CONFIG =====
-#MODEL_NAME = "Qwen/Qwen3-4B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
-MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
+MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-4B" for lower VRAM
 DATASET_PATH = "star_trek_guard_dataset.jsonl"
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
@@ -74,7 +73,7 @@ model = AutoModelForSequenceClassification.from_pretrained(
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    dtype=torch.float16,  # ✅ Use 'dtype' instead of deprecated 'torch_dtype'
+    dtype=torch.float16,  # Use 'dtype' instead of deprecated 'torch_dtype'
     quantization_config=quantization_config,
 )
 
@@ -108,7 +107,7 @@ def tokenize_function(examples):
 tokenized_dataset = dataset.map(
     tokenize_function,
     batched=True,
-    remove_columns=["input", "label"],  # ✅ Remove both original columns to prevent tensor error
+    remove_columns=["input", "label"],  # Remove both original columns to prevent tensor error
 )
 print("🔍 Columns after tokenization:", tokenized_dataset["train"].column_names)
 
@@ -131,7 +130,7 @@ training_args = TrainingArguments(
     metric_for_best_model="eval_loss",
     greater_is_better=False,
     report_to="none",
-    fp16=True,
+    # fp16=True,  # ❌ REMOVED - Conflicts with 4-bit quantization
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
     warmup_ratio=0.1,
@@ -140,6 +139,7 @@ training_args = TrainingArguments(
     dataloader_pin_memory=False,  # Avoid pin_memory warning
     log_level="info",
     logging_first_step=True,
+    ddp_find_unused_parameters=False,  # For multi-GPU compatibility
 )
 
 # ===== TRAINER =====
@@ -148,7 +148,7 @@ trainer = Trainer(
     args=training_args,
     train_dataset=tokenized_dataset["train"],
     eval_dataset=tokenized_dataset["test"],
-    processing_class=tokenizer,  # ✅ Use 'processing_class' instead of deprecated 'tokenizer'
+    processing_class=tokenizer,  # Use 'processing_class' instead of deprecated 'tokenizer'
 )
 
 # ===== TRAIN =====
