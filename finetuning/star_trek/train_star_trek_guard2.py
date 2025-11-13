@@ -126,8 +126,8 @@ training_args = TrainingArguments(
     greater_is_better=False,
     report_to="none",
     
-    # Use fp16 for training to save memory while keeping model precision
-    fp16=True,
+    # fp16=True, # REMOVED: Conflicts with torch_dtype=torch.float16
+    # half_precision_backend="auto", # Not needed without fp16
     
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
