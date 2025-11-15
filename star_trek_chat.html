@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qwen3Guard Chat Demo</title>
+    <title>Star Trek Chat Interface - Qwen3Guard</title>
     <style>
         * {
             margin: 0;
@@ -13,12 +13,27 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #2c3e50);
+            background: linear-gradient(135deg, #000033, #001133, #000033);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(30, 144, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 215, 0, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
         
         .main-wrapper {
@@ -27,35 +42,67 @@
             display: flex;
             gap: 20px;
             height: 90vh;
+            position: relative;
+            z-index: 1;
         }
         
         .container {
             flex: 1;
             max-width: 800px;
             height: 100%;
-            background-color: #1e1e2e;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #001122, #000033);
+            border: 2px solid #FF9900;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.3), inset 0 0 20px rgba(30, 144, 255, 0.1);
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+        
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF9900, #FFD700, #FF9900);
+            z-index: 1;
         }
         
         .moderation-panel {
             flex: 0 0 400px;
-            background-color: #1e1e2e;
-            border-radius: 20px;
+            background: linear-gradient(135deg, #001122, #000033);
+            border: 2px solid #FF9900;
+            border-radius: 0;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 153, 0, 0.3), inset 0 0 20px rgba(30, 144, 255, 0.1);
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+        
+        .moderation-panel::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF9900, #FFD700, #FF9900);
+            z-index: 1;
         }
         
         .moderation-header {
-            background: linear-gradient(90deg, #e74c3c, #c0392b);
+            background: linear-gradient(90deg, #DC143C, #C41E3A);
             padding: 20px;
             text-align: center;
-            color: white;
+            color: #FFD700;
+            border-bottom: 2px solid #FF9900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
         
         .moderation-header h2 {
@@ -87,33 +134,39 @@
         }
         
         .moderation-status.safe {
-            background: linear-gradient(135deg, #27ae60, #229954);
-            color: white;
+            background: linear-gradient(135deg, #1E90FF, #4A90E2);
+            color: #FFD700;
+            border: 1px solid #FF9900;
         }
         
         .moderation-status.unsafe {
-            background: linear-gradient(135deg, #e74c3c, #c0392b);
-            color: white;
+            background: linear-gradient(135deg, #DC143C, #C41E3A);
+            color: #FFD700;
+            border: 1px solid #FF9900;
         }
         
         .moderation-status.pending {
-            background: linear-gradient(135deg, #f39c12, #e67e22);
-            color: white;
+            background: linear-gradient(135deg, #FF9900, #FFA500);
+            color: #000033;
+            border: 1px solid #FFD700;
         }
         
         .moderation-details {
-            background-color: #252536;
+            background: linear-gradient(135deg, #001122, #000033);
             padding: 15px;
-            border-radius: 12px;
-            color: #e0e0ff;
+            border: 1px solid #FF9900;
+            border-radius: 0;
+            color: #E0E0FF;
             font-size: 0.9rem;
             line-height: 1.6;
         }
         
         .moderation-details h3 {
-            color: #8e2de2;
+            color: #FFD700;
             margin-bottom: 10px;
             font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .moderation-details .detail-item {
@@ -122,11 +175,11 @@
         
         .moderation-details .detail-label {
             font-weight: bold;
-            color: #aaa;
+            color: #FF9900;
         }
         
         .moderation-details .detail-value {
-            color: #fff;
+            color: #FFD700;
         }
         
         .moderation-placeholder {
@@ -149,10 +202,14 @@
         }
         
         .header {
-            background: linear-gradient(90deg, #4a00e0, #8e2de2);
+            background: linear-gradient(90deg, #1E90FF, #4A90E2);
             padding: 20px;
             text-align: center;
-            color: white;
+            color: #FFD700;
+            border-bottom: 2px solid #FF9900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
         }
         
         .header h1 {
@@ -189,25 +246,28 @@
         }
         
         .user-message {
-            background: linear-gradient(135deg, #3498db, #2980b9);
-            color: white;
+            background: linear-gradient(135deg, #1E90FF, #4A90E2);
+            color: #FFD700;
             align-self: flex-end;
-            border-bottom-right-radius: 5px;
+            border: 1px solid #FF9900;
+            border-bottom-right-radius: 0;
         }
         
         .bot-message {
-            background: linear-gradient(135deg, #2c3e50, #1a2a6c);
-            color: #e0e0ff;
+            background: linear-gradient(135deg, #001122, #000033);
+            color: #E0E0FF;
             align-self: flex-start;
-            border-bottom-left-radius: 5px;
+            border: 1px solid #FF9900;
+            border-bottom-left-radius: 0;
         }
         
         .typing-indicator {
             display: none;
-            background: linear-gradient(135deg, #2c3e50, #1a2a6c);
-            color: #e0e0ff;
+            background: linear-gradient(135deg, #001122, #000033);
+            color: #E0E0FF;
             align-self: flex-start;
-            border-bottom-left-radius: 5px;
+            border: 1px solid #FF9900;
+            border-bottom-left-radius: 0;
             padding: 15px;
         }
         
@@ -216,10 +276,10 @@
             width: 10px;
             float: left;
             margin: 0 2px;
-            background-color: #8e2de2;
+            background-color: #FF9900;
             display: block;
             border-radius: 50%;
-            opacity: 0.4;
+            opacity: 0.6;
         }
         
         .typing-indicator span:nth-of-type(1) {
@@ -241,7 +301,8 @@
         
         .input-container {
             padding: 20px;
-            background-color: #252536;
+            background: linear-gradient(135deg, #001122, #000033);
+            border-top: 2px solid #FF9900;
             display: flex;
             gap: 10px;
         }
@@ -249,25 +310,31 @@
         #user-input {
             flex: 1;
             padding: 15px 20px;
-            border: none;
-            border-radius: 30px;
-            background-color: #33334d;
-            color: white;
+            border: 1px solid #FF9900;
+            border-radius: 0;
+            background-color: #000033;
+            color: #FFD700;
             font-size: 1rem;
             outline: none;
             transition: all 0.3s;
         }
         
         #user-input:focus {
-            background-color: #3a3a52;
-            box-shadow: 0 0 0 2px #8e2de2;
+            background-color: #001122;
+            box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+            border-color: #FFD700;
+        }
+        
+        #user-input::placeholder {
+            color: #FF9900;
+            opacity: 0.6;
         }
         
         #send-button {
-            background: linear-gradient(90deg, #4a00e0, #8e2de2);
-            color: white;
-            border: none;
-            border-radius: 50%;
+            background: linear-gradient(90deg, #FF9900, #FFA500);
+            color: #000033;
+            border: 1px solid #FFD700;
+            border-radius: 0;
             width: 50px;
             height: 50px;
             cursor: pointer;
@@ -279,14 +346,16 @@
         
         #send-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(142, 45, 226, 0.5);
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.8);
+            background: linear-gradient(90deg, #FFD700, #FF9900);
         }
         
         #send-button:disabled {
             opacity: 0.4;
             cursor: not-allowed;
             transform: none;
-            background: linear-gradient(90deg, #555555, #444444);
+            background: linear-gradient(90deg, #333333, #222222);
+            border-color: #666666;
             box-shadow: none;
         }
         
@@ -297,13 +366,16 @@
         .model-info {
             text-align: center;
             padding: 10px;
-            color: #aaa;
+            color: #FF9900;
             font-size: 0.8rem;
-            background-color: #252536;
+            background: linear-gradient(135deg, #001122, #000033);
+            border-top: 1px solid #FF9900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .model-info span {
-            color: #8e2de2;
+            color: #FFD700;
             font-weight: bold;
         }
         
@@ -315,12 +387,12 @@
         
         .chat-container::-webkit-scrollbar-track,
         .moderation-content::-webkit-scrollbar-track {
-            background: #252536;
+            background: #000033;
         }
         
         .chat-container::-webkit-scrollbar-thumb,
         .moderation-content::-webkit-scrollbar-thumb {
-            background: linear-gradient(#4a00e0, #8e2de2);
+            background: linear-gradient(#FF9900, #FFD700);
             border-radius: 4px;
         }
     </style>
@@ -329,13 +401,13 @@
     <div class="main-wrapper">
     <div class="container">
         <div class="header">
-            <h1>Qwen3Guard Chat Demo</h1>
-            <p>Streaming responses from Qwen3Guard-Stream</p>
+            <h1>USS Enterprise - Communications</h1>
+            <p>Stardate 2401.5 | Qwen3Guard-StarTrek Interface</p>
         </div>
         
         <div class="chat-container" id="chat-container">
             <div class="message bot-message">
-                Hello! I'm Qwen3Guard, a safety-focused AI assistant. How can I help you today?
+                Greetings! I am the Qwen3Guard-StarTrek AI assistant. I am programmed to assist you while maintaining the highest standards of safety and Starfleet protocols. How may I be of service?
             </div>
         </div>
         
@@ -346,31 +418,31 @@
         </div>
         
         <div class="input-container">
-            <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off">
+            <input type="text" id="user-input" placeholder="Enter your message, Ensign..." autocomplete="off">
             <button id="send-button" aria-label="Send message">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 2L11 13" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </button>
         </div>
         
         <div class="model-info" id="model-info">
-            Powered by <span>Qwen3Guard-Stream</span> | Responses are streamed in real-time
+            Powered by <span>Qwen3Guard-StarTrek-Stream-0.6B</span> | Real-time communication protocol active
         </div>
     </div>
     
-    <div class="moderation-panel">
-        <div class="moderation-header">
-            <h2>Real-Time Moderation</h2>
-            <p>Assessment updates as you type</p>
-        </div>
-        <div class="moderation-content" id="moderation-content">
-            <div class="moderation-placeholder">
-                Start typing to see moderation results...
+        <div class="moderation-panel">
+            <div class="moderation-header">
+                <h2>Security Analysis</h2>
+                <p>Real-Time Threat Assessment</p>
+            </div>
+            <div class="moderation-content" id="moderation-content">
+                <div class="moderation-placeholder">
+                    Awaiting input for security analysis...
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <script>
@@ -386,7 +458,7 @@
             let moderationCompleted = false;
             const MODERATION_API_URL = 'http://localhost:5000/api/moderate';
             
-            // LLM Configuration - can be changed as needed
+            // LLM Configuration - Star Trek Model
             const LLM_CONFIG = {
                 baseUrl: 'http://192.168.10.100:11434',
                 model: 'Qwen3-4B-f16:Q5_K_M',
@@ -417,7 +489,7 @@
                 
                 // If message is empty, show placeholder and disable send button
                 if (!message.trim()) {
-                    moderationContent.innerHTML = '<div class="moderation-placeholder">Start typing to see moderation results...</div>';
+                    moderationContent.innerHTML = '<div class="moderation-placeholder">Awaiting input for security analysis...</div>';
                     sendButton.disabled = true;
                     moderationCompleted = false;
                     return;
@@ -430,7 +502,7 @@
                 // Show pending status immediately
                 moderationContent.innerHTML = `
                     <div class="moderation-status pending">
-                        Analyzing...
+                        Scanning...
                     </div>
                 `;
                 
@@ -481,16 +553,16 @@
             function updateModerationPanel(data) {
                 const isSafe = data.risk_level === 'Safe';
                 const statusClass = isSafe ? 'safe' : 'unsafe';
-                const statusText = isSafe ? '✓ Safe' : '⚠ Unsafe';
+                const statusText = isSafe ? '✓ CLEAR' : '⚠ THREAT DETECTED';
                 
                 let html = `
                     <div class="moderation-status ${statusClass}">
                         ${statusText}
                     </div>
                     <div class="moderation-details">
-                        <h3>Moderation Details</h3>
+                        <h3>Security Analysis Report</h3>
                         <div class="detail-item">
-                            <span class="detail-label">Risk Level:</span>
+                            <span class="detail-label">Threat Level:</span>
                             <span class="detail-value">${data.risk_level}</span>
                         </div>
                 `;
@@ -654,7 +726,7 @@
                             if (error.message.includes('unable to load model') || error.message.includes('blob')) {
                                 errorMsg += '- Model blob file is corrupted or missing\n' +
                                     '- Try re-pulling the model on the server:\n' +
-                                    '  ollama pull Qwen3Guard-Stream-8B:Q5_K_M\n' +
+                                    '  ollama pull geoffmunn/Qwen3Guard-StarTrek-stream-0.6B\n' +
                                     '- Or try removing and re-adding the model\n';
                             } else {
                                 errorMsg += '- Model name might be incorrect (check with: ollama list)\n' +
@@ -685,7 +757,7 @@
             
             // Update model info display with LLM configuration
             const modelInfo = document.getElementById('model-info');
-            modelInfo.innerHTML = `Powered by <span>${LLM_CONFIG.model}</span> | Responses are streamed in real-time`;
+            modelInfo.innerHTML = `Powered by <span>${LLM_CONFIG.model}</span> | Real-time communication protocol active`;
             
             // Focus input on load
             userInput.focus();

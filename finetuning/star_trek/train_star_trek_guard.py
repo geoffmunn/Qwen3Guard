@@ -11,60 +11,73 @@ from transformers import (
 )
 from peft import LoraConfig, get_peft_model, TaskType
 
-# ===== CONFIGURATION =====
-MODEL_NAME = "Qwen/Qwen3-0.6B"  # or "Qwen/Qwen3-0.6B" for lower VRAM
-DATASET_PATH = "star_trek_guard_dataset.jsonl"
+# ===== CONFIG =====
+# Use the smaller 0.6B model for full precision to manage memory
+MODEL_NAME = "Qwen/Qwen3-4B"
+DATASET_PATH = "star_trek_guard_dataset.jsonl"  # Updated to match your file
 OUTPUT_DIR = "./star_trek_guard_finetuned"
 NUM_LABELS = 2
 LABEL2ID = {"not_related": 0, "related": 1}
 ID2LABEL = {0: "not_related", 1: "related"}
-BATCH_SIZE = 1           # Reduce if OOM
-GRADIENT_ACCUMULATION = 8
+BATCH_SIZE = 2  # Reduce batch size for full precision
+GRADIENT_ACCUMULATION = 16  # Increase gradient accumulation to maintain effective batch size
 EPOCHS = 3
 LEARNING_RATE = 2e-4
-MAX_LENGTH = 256         # Lower = less memory
-WARMUP_RATIO = 0.1
+MAX_LENGTH = 512
 
 # ===== LOAD DATASET =====
-print("📥 Loading dataset...")
 dataset = load_dataset("json", data_files=DATASET_PATH)["train"]
-dataset = dataset.map(lambda x: {"labels": LABEL2ID[x["label"]]}, batched=False)
-dataset = dataset.train_test_split(test_size=0.1, seed=42)
+print("📊 Dataset info:")
+print(f"Total samples: {len(dataset)}")
+print(f"Sample structure: {dataset[0] if len(dataset) > 0 else 'Empty'}")
+print(f"Available columns: {dataset.column_names}")
 
-print(f"✅ Loaded {len(dataset['train'])} training and {len(dataset['test'])} validation examples.")
+# Auto-detect label column
+possible_label_cols = ["label", "class", "category", "is_related"]
+label_col = None
+for col in possible_label_cols:
+    if col in dataset.column_names:
+        label_col = col
+        break
+
+if label_col is None:
+    raise ValueError(f"❌ Could not find label column. Available: {dataset.column_names}")
+
+dataset = dataset.map(lambda x: {"labels": LABEL2ID[x[label_col]]})
+print(f"✅ Using '{label_col}' as label column → mapped to 'labels'")
+print(f"Label distribution: {dataset['labels'][:10]}...")
+
+# Split dataset
+dataset = dataset.train_test_split(test_size=0.1)
+print(f"Train: {len(dataset['train'])}, Test: {len(dataset['test'])}")
 
 # ===== LOAD TOKENIZER & MODEL =====
-print("🔧 Loading tokenizer and model...")
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME, trust_remote_code=True)
-tokenizer.pad_token = tokenizer.eos_token  # Qwen uses eos_token as pad
+if tokenizer.pad_token is None:
+    tokenizer.pad_token = tokenizer.eos_token
 
-# Quantization config for 4-bit (saves ~75% VRAM)
-bnb_config = BitsAndBytesConfig(
-    load_in_4bit=True,
-    bnb_4bit_quant_type="nf4",
-    bnb_4bit_compute_dtype=torch.float16,
-    bnb_4bit_use_double_quant=True,
-)
+# Explicitly set BOS/EOS/PAD for Qwen
+tokenizer.bos_token = tokenizer.eos_token
+tokenizer.bos_token_id = tokenizer.eos_token_id
+tokenizer.pad_token_id = tokenizer.eos_token_id
 
+# Load the model in full precision (no 4-bit quantization)
 model = AutoModelForSequenceClassification.from_pretrained(
     MODEL_NAME,
     num_labels=NUM_LABELS,
     id2label=ID2LABEL,
     label2id=LABEL2ID,
     trust_remote_code=True,
-    torch_dtype=torch.float16,
-    quantization_config=bnb_config,
-    device_map="auto",  # Automatically uses GPU if available
+    dtype=torch.float16, # Use float16 for efficiency while keeping full precision
+    device_map="auto" # Use device_map for multi-GPU if available
 )
 
-# Fix padding token
+# Align config
 model.config.pad_token_id = tokenizer.pad_token_id
-# The warning about score.weight is expected for a new classification head.
-# The warning about cache config is also expected if the model config doesn't have it.
-# We do not need to set use_cache=False here as it's not a TrainingArguments parameter.
+model.config.bos_token_id = tokenizer.bos_token_id
+model.config.eos_token_id = tokenizer.eos_token_id
 
-# ===== LoRA CONFIGURATION =====
-print("⚡ Applying LoRA fine-tuning...")
+# ===== LoRA CONFIG =====
 lora_config = LoraConfig(
     r=16,
     lora_alpha=32,
@@ -76,7 +89,7 @@ lora_config = LoraConfig(
 model = get_peft_model(model, lora_config)
 model.print_trainable_parameters()
 
-# ===== TOKENIZE DATASET =====
+# ===== TOKENIZE =====
 def tokenize_function(examples):
     return tokenizer(
         examples["input"],
@@ -85,15 +98,19 @@ def tokenize_function(examples):
         max_length=MAX_LENGTH,
     )
 
-print("🧮 Tokenizing dataset...")
+# CRITICAL: Remove BOTH 'input' AND 'label' columns to avoid tensor conversion errors
 tokenized_dataset = dataset.map(
     tokenize_function,
     batched=True,
-    remove_columns=["input", "label"]
+    remove_columns=["input", "label"],  # ✅ Remove both original columns to prevent tensor error
 )
+print("🔍 Columns after tokenization:", tokenized_dataset["train"].column_names)
 
-# ===== TRAINING ARGUMENTS =====
-print("⚙️ Setting training arguments...")
+# Verify that only numeric columns remain
+assert "labels" in tokenized_dataset["train"].column_names, "💥 'labels' column missing after tokenization!"
+assert "label" not in tokenized_dataset["train"].column_names, "💥 Original 'label' column still present! Must be removed."
+
+# ===== TRAINING ARGS =====
 training_args = TrainingArguments(
     output_dir=OUTPUT_DIR,
     num_train_epochs=EPOCHS,
@@ -101,43 +118,87 @@ training_args = TrainingArguments(
     per_device_eval_batch_size=BATCH_SIZE * 2,
     gradient_accumulation_steps=GRADIENT_ACCUMULATION,
     learning_rate=LEARNING_RATE,
-    warmup_ratio=WARMUP_RATIO,
     logging_steps=10,
     save_strategy="epoch",
-    eval_strategy="epoch",  # ✅ Now supported in modern transformers
+    eval_strategy="epoch",
     load_best_model_at_end=True,
     metric_for_best_model="eval_loss",
     greater_is_better=False,
-    report_to="none",  # Disable wandb/MLflow
-    fp16=True,
+    report_to="none",
+
+    # fp16=True, # REMOVED: Conflicts with torch_dtype=torch.float16
+    # half_precision_backend="auto", # Not needed without fp16
+
     optim="paged_adamw_32bit",
     lr_scheduler_type="cosine",
+    warmup_ratio=0.1,
     save_total_limit=2,
-    dataloader_pin_memory=False,  # ✅ Prevents memory leak on CPU
-    # gradient_checkpointing=True,  # <- Keep commented out initially if facing errors
+    remove_unused_columns=False,  # Keep 'labels' column
+    dataloader_pin_memory=False,  # Avoid pin_memory warning
+    log_level="info",
+    logging_first_step=True,
+    ddp_find_unused_parameters=False,  # For multi-GPU compatibility
 )
 
 # ===== TRAINER =====
-print("🚀 Initializing trainer...")
 trainer = Trainer(
     model=model,
     args=training_args,
     train_dataset=tokenized_dataset["train"],
     eval_dataset=tokenized_dataset["test"],
-    tokenizer=tokenizer,  # Still valid in most versions
-    # processing_class=tokenizer,  # Also include for forward compatibility if Trainer accepts it
+    processing_class=tokenizer,  # ✅ Use 'processing_class' instead of deprecated 'tokenizer'
 )
 
 # ===== TRAIN =====
-print("🔥 Starting training...")
+print("🚀 Starting fine-tuning...")
 trainer.train()
 
-# ===== SAVE FINAL MODEL =====
-print("💾 Saving fine-tuned model...")
+# ===== SAVE =====
 trainer.save_model(OUTPUT_DIR)
 tokenizer.save_pretrained(OUTPUT_DIR)
+print(f"✅ Model saved to {OUTPUT_DIR}")
 
-print(f"\n🎉 SUCCESS! Model saved to: {OUTPUT_DIR}")
-print("✅ Next steps:")
-print("   1. Test with: python test_model.py")
-print("   2. Deploy with: Hugging Face Inference API or FastAPI")
+# ===== OPTIONAL: Test the fine-tuned model =====
+print("\n🧪 Testing the fine-tuned model...")
+test_inputs = [
+    "What is the Prime Directive in Star Trek?",
+    "What is the capital of France?",
+    "How does a warp drive work?",
+    "What is 2 + 2?",
+    "Did the Borg destory the death star?",
+    "Who is the captain of the Enterprise?",
+    "Could Darth Vader beat the Vulcans?"
+]
+
+model.eval()
+with torch.no_grad():
+    for text in test_inputs:
+        inputs = tokenizer(
+            text,
+            return_tensors="pt",
+            truncation=True,
+            padding=True,
+            max_length=MAX_LENGTH
+        )
+        inputs = {k: v.to(model.device) for k, v in inputs.items()}
+
+        outputs = model(**inputs)
+        logits = outputs.logits
+
+        print(f"Raw logits: {logits}")  # Debug
+
+        # Handle nan manually
+        if torch.isnan(logits).any():
+            print(f"⚠️ NaN detected in logits for input: {text}")
+            predicted_class_id = 0
+            confidence = 0.0
+        else:
+            probs = torch.nn.functional.softmax(logits, dim=-1)
+            predicted_class_id = probs.argmax().item()
+            confidence = probs.max().item()
+
+        predicted_label = ID2LABEL[predicted_class_id]
+
+        print(f"Input: {text}")
+        print(f"Prediction: {predicted_label} (confidence: {confidence:.3f})")
+        print("---")
