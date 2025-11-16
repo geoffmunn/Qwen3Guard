@@ -451,11 +451,11 @@ while len(questions) < 2500:
 questions = questions[:2500]
 
 # Write to file
-with open('finetuning/star_trek/star_trek_guard_dataset.txt', 'w', encoding='utf-8') as f:
+with open('related_guard_dataset.jsonl', 'w', encoding='utf-8') as f:
     for question in questions:
         json_obj = {"input": question, "label": "related"}
         f.write(json.dumps(json_obj) + '\n')
 
 print(f"Generated {len(questions)} Star Trek questions!")
-print("File written to: finetuning/star_trek/star_trek_guard_dataset.txt")
+print("File written to: star_trek_guard_dataset.jsonl")
 
