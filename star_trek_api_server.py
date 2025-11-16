@@ -7,7 +7,7 @@ import sys
 # ============================================================================
 # CONFIGURATION
 # ============================================================================
-MODEL_PATH = "geoffmunn/Qwen3Guard-StarTrek-stream-0.6B"
+MODEL_PATH = "geoffmunn/Qwen3Guard-StarTrek-Classification-0.6B"
 MAX_LENGTH = 512
 ID2LABEL = {0: "not_related", 1: "related"}
 
@@ -28,24 +28,32 @@ def load_model():
         tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
-        
+       
         # Determine appropriate dtype based on device support
         # Use float16 for GPU, float32 for CPU (more compatible than bfloat16)
         if torch.cuda.is_available():
             dtype = torch.float16
             print("Using float16 precision (GPU)")
+            # Use auto device mapping for GPU
+            model = AutoModelForSequenceClassification.from_pretrained(
+                MODEL_PATH,
+                device_map="auto",
+                dtype=dtype,
+                trust_remote_code=True,
+            ).eval()
         else:
             dtype = torch.float32
             print("Using float32 precision (CPU)")
-        
-        model = AutoModelForSequenceClassification.from_pretrained(
-            MODEL_PATH,
-            device_map="auto",
-            dtype=dtype,
-            trust_remote_code=True,
-        ).eval()
+            # For CPU, avoid device_map="auto" to prevent offload issues
+            # Load on CPU directly
+            model = AutoModelForSequenceClassification.from_pretrained(
+                MODEL_PATH,
+                dtype=dtype,
+                trust_remote_code=True,
+            ).to('cpu').eval()
+       
         print(f"Model {MODEL_PATH} loaded successfully!")
-        
+       
         # Check model config for label mappings
         if hasattr(model.config, 'id2label'):
             print(f"Model labels: {model.config.id2label}")
