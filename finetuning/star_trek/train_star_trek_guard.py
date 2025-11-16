@@ -1,5 +1,6 @@
 # train_star_trek_guard.py
 import os
+import shutil  # Added for directory deletion
 import torch
 from datasets import load_dataset
 from transformers import (
@@ -24,6 +25,19 @@ GRADIENT_ACCUMULATION = 16  # Increase gradient accumulation to maintain effecti
 EPOCHS = 3
 LEARNING_RATE = 2e-4
 MAX_LENGTH = 512
+
+# ===== CLEAN OUTPUT DIRECTORY =====
+if os.path.exists(OUTPUT_DIR):
+    print(f"🧹 Cleaning output directory: {OUTPUT_DIR}")
+    for item in os.listdir(OUTPUT_DIR):
+        item_path = os.path.join(OUTPUT_DIR, item)
+        if os.path.isfile(item_path):
+            os.remove(item_path)
+        elif os.path.isdir(item_path):
+            shutil.rmtree(item_path)
+    print(f"✅ Output directory cleaned: {OUTPUT_DIR}")
+else:
+    print(f"📁 Output directory does not exist, will be created: {OUTPUT_DIR}")
 
 # ===== LOAD DATASET =====
 dataset = load_dataset("json", data_files=DATASET_PATH)["train"]

@@ -146,12 +146,12 @@ tokenizer = AutoTokenizer.from_pretrained("your-username/your-model-name")
 ## API Server
 
 ### Stream model
-The `api_server.py` provides a complete backend API for the Qwen3Guard-Stream model that can be used with the `chat_demo.html` interface.
+The `qwen-stream-api_server.py` provides a complete backend API for the Qwen3Guard-Stream model that can be used with the `qwen_stream_chat.html` interface.
 
 ### Classification model
-The Star Trek classification examples show how to use the fine-tuned Star Trek example. This is NOT a stream model so it doesn't use the same interface as the standard `api_server.py` example.
+The Star Trek classification examples show how to use the fine-tuned Star Trek example. This is NOT a stream model so it doesn't use the same interface as the standard `qwen-steam-api_server.py` example.
 
-You can connect to it via the `star_trek_chat.html` interface.
+You can connect to it via the `star_trek_chat.html` interface and the `star_trek_api_server.py` server.
 
 ### Setup
 
@@ -165,18 +165,19 @@ pip install accelerate
 
 2. Start the API server:
 ```bash
-python api_server.py
+python qwen_stream_api_server.py
 ```
+Or use the Star Trek version if required.
 
 The server will start on `http://localhost:5000` by default.
 
 ### Usage
 
-1. Open `chat_demo.html` in a web browser (you may need to serve it from a local web server to avoid CORS issues):
+1. Open `qwen_stream_chat.html` in a web browser (you may need to serve it from a local web server to avoid CORS issues):
 ```bash
 python -m http.server 8000
 ```
-Then navigate to `http://localhost:8000/chat_demo.html`
+Then navigate to `http://localhost:8000/qwen_stream_chat.html`
 
 2. The HTML interface will automatically connect to the API server at `http://localhost:5000/api/chat`
 
