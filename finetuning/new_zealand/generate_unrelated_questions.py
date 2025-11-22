@@ -30,16 +30,6 @@ def generate_unrelated_questions():
     # Remove any that might be confused with NZ
     cities = [c for c in cities if c.lower() not in ["auckland", "wellington", "christchurch", "dunedin"]]
 
-    # Sci-Fi & Fantasy (non-Star Trek)
-    franchises = ["Dune", "Star Wars", "The Matrix", "Blade Runner", "Alien", "Predator"
-                  "Stargate", "Farscape", "Battlestar Galactica", "Foundation", "Warhammer 40K", "Mass Effect"]
-
-    actors = [
-        "Leonardo DiCaprio", "Scarlett Johansson", "Tom Hanks", "Charlize Theron",
-        "Daniel Kaluuya", "Florence Pugh", "Rami Malek", "Viola Davis", "Mahershala Ali", "Chris Evans",
-        "Zendaya", "Michael B. Jordan", "Emma Stone", "Denzel Washington", "Natalie Portman"
-    ]
-
     musicians = [
         "Taylor Swift", "BTS", "Drake", "Billie Eilish", "Ed Sheeran", "Bad Bunny",
         "The Weeknd", "Rosé", "Shakira", "Coldplay", "Adele", "Bruno Mars", "Doja Cat",
@@ -76,6 +66,16 @@ def generate_unrelated_questions():
         "cricket", "lacrosse", "curling", "bobsleigh", "badminton", "handball", "rugby sevens",
         "water polo", "gymnastics", "figure skating", "baseball", "American football", "ice hockey", "table tennis", "fencing", "archery", "triathlon", "cycling", "sailing", "equestrian", "shooting"
     ]
+
+    # Filter out anything remotely NZ-associated
+    def contains_nz_term(q):
+        nz_terms = {
+            "kiwi", "maori", "te reo", "aotearoa", "haka", "hangi", "weta", "taika waititi",
+            "russell crowe", "jacinda", "ardern", "all blacks", "silver fern", "matariki",
+            "waitangi", "rangitoto", "tauranga", "rotorua", "taupo", "fiordland", "milford sound",
+            "hobbiton", "welly", "kiwifruit", "long white cloud", "anzac", "sheep station"
+        }
+        return any(term in q.lower() for term in nz_terms)
 
     # Geography - Global
     for city in cities:
@@ -335,7 +335,17 @@ def generate_unrelated_questions():
     # Shuffle to mix categories
     random.shuffle(questions)
 
-    return questions[:2500]
+    # Deduplicate and filter any accidental NZ-related content
+    filtered_questions = []
+    seen = set()
+
+    for q in questions:
+        if q.lower() in seen or contains_nz_term(q):
+            continue
+        seen.add(q.lower())
+        filtered_questions.append(q)
+
+    return filtered_questions[:2500]
 
 def main():
     questions = generate_unrelated_questions()
@@ -350,7 +360,7 @@ def main():
             }
             f.write(json.dumps(entry, ensure_ascii=False) + '\n')
 
-    print(f"✅ Generated 2,500 unique non-Star-Trek questions.")
+    print(f"✅ Generated 2,500 unique non-New-Zealand questions.")
     print(f"📁 Saved to: {output_file}")
 
 if __name__ == "__main__":
