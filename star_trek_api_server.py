@@ -3,6 +3,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sys
+import argparse
 
 # ============================================================================
 # CONFIGURATION
@@ -20,12 +21,24 @@ CORS(app, origins="*", allow_headers=["Content-Type", "Authorization"], methods=
 model = None
 tokenizer = None
 
-def load_model():
-    """Load the Qwen3Guard-StarTrek model and tokenizer"""
+def load_model(force_download=False):
+    """Load the Qwen3Guard-StarTrek model and tokenizer
+   
+    Args:
+        force_download: If True, force re-download the model from Hugging Face Hub
+    """
     global model, tokenizer
     if model is None or tokenizer is None:
-        print(f"Loading {MODEL_PATH} model...")
-        tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH, trust_remote_code=True)
+        if force_download:
+            print(f"⚠️  Force download enabled - refreshing {MODEL_PATH} from source...")
+        else:
+            print(f"Loading {MODEL_PATH} model...")
+       
+        tokenizer = AutoTokenizer.from_pretrained(
+            MODEL_PATH,
+            trust_remote_code=True,
+            force_download=force_download
+        )
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.eos_token
        
@@ -40,6 +53,7 @@ def load_model():
                 device_map="auto",
                 dtype=dtype,
                 trust_remote_code=True,
+                force_download=force_download,
             ).eval()
         else:
             dtype = torch.float32
@@ -50,6 +64,7 @@ def load_model():
                 MODEL_PATH,
                 dtype=dtype,
                 trust_remote_code=True,
+                force_download=force_download,
             ).to('cpu').eval()
        
         print(f"Model {MODEL_PATH} loaded successfully!")
@@ -63,11 +78,11 @@ def moderate():
     """Moderate a single user message using Qwen3Guard-StarTrek model"""
     if request.method == 'OPTIONS':
         return jsonify({}), 200
-    
+   
     try:
         data = request.json or {}
         message = data.get('message', '').strip()
-        
+       
         if not message:
             return jsonify({
                 'risk_level': 'Safe',
@@ -76,7 +91,7 @@ def moderate():
                 'predicted_label': 'not_related',
                 'confidence': 0.0
             }), 200
-        
+       
         # Tokenize the input text
         inputs = tokenizer(
             message,
@@ -86,13 +101,13 @@ def moderate():
             max_length=MAX_LENGTH
         )
         inputs = {k: v.to(model.device) for k, v in inputs.items()}
-        
+       
         # Get model prediction
         model.eval()
         with torch.no_grad():
             outputs = model(**inputs)
             logits = outputs.logits
-            
+           
             # DEBUG: Print raw model outputs
             print(f"\n{'='*60}")
             print(f"DEBUG: Moderation Request")
@@ -100,7 +115,7 @@ def moderate():
             print(f"Input message: {repr(message)}")
             print(f"Raw logits: {logits}")
             print(f"Logits values: {logits.cpu().numpy().flatten()}")
-            
+           
             # Handle NaN manually (as shown in training code)
             if torch.isnan(logits).any():
                 print(f"⚠️ NaN detected in logits for input: {message}")
@@ -114,17 +129,17 @@ def moderate():
                 print(f"Probabilities after softmax: {probs.cpu().numpy().flatten()}")
                 print(f"Predicted class ID: {predicted_class_id}")
                 print(f"Confidence: {confidence:.4f}")
-        
+       
         # Get predicted label - use class ID directly since model config has generic labels
         # The model config has LABEL_0/LABEL_1, but we know from training:
         # 0 = "not_related", 1 = "related"
         if hasattr(model.config, 'id2label') and model.config.id2label:
             print(f"Model config id2label: {model.config.id2label}")
-        
+       
         # Use our known label mapping based on class ID
         predicted_label = ID2LABEL.get(predicted_class_id, "not_related")
         print(f"Predicted label (from class ID {predicted_class_id}): {predicted_label}")
-        
+       
         # Map to risk level: "related" = Safe (Star Trek related), "not_related" = potentially unsafe
         if predicted_label == "related":
             risk_level = "Safe"
@@ -132,11 +147,11 @@ def moderate():
         else:
             risk_level = "Unsafe"
             category = "Not Star Trek Related"
-        
+       
         print(f"Final risk_level: {risk_level}")
         print(f"Final category: {category}")
         print(f"{'='*60}\n")
-        
+       
         # Build response with debug info
         response = {
             'risk_level': risk_level,
@@ -146,15 +161,15 @@ def moderate():
             'predicted_label': predicted_label,
             'predicted_class_id': int(predicted_class_id)
         }
-        
+       
         # Add debug info if available
         if probs is not None:
             response['probabilities'] = probs.cpu().numpy().flatten().tolist()
         if hasattr(model.config, 'id2label') and model.config.id2label:
             response['model_id2label'] = model.config.id2label
-        
+       
         return jsonify(response)
-    
+   
     except Exception as e:
         print(f"Error in moderate endpoint: {e}", file=sys.stderr)
         import traceback
@@ -184,11 +199,39 @@ def index():
     })
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Qwen3Guard-StarTrek API Server',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  python star_trek_api_server.py                    # Start server with cached model
+  python star_trek_api_server.py --force-download    # Refresh model from Hugging Face Hub
+        """
+    )
+    parser.add_argument(
+        '--force-download',
+        action='store_true',
+        help='Force re-download the model from Hugging Face Hub (refreshes cache)'
+    )
+    parser.add_argument(
+        '--port',
+        type=int,
+        default=5000,
+        help='Port to run the server on (default: 5000)'
+    )
+    parser.add_argument(
+        '--host',
+        type=str,
+        default='0.0.0.0',
+        help='Host to bind the server to (default: 0.0.0.0)'
+    )
+   
+    args = parser.parse_args()
+   
     print(f"Initializing Qwen3Guard-StarTrek API Server (Model: {MODEL_PATH})...")
-    load_model()
-    print("Starting server on http://localhost:5000")
+    load_model(force_download=args.force_download)
+    print(f"Starting server on http://{args.host}:{args.port}")
     print("API endpoints:")
     print("  - POST /api/moderate - Moderate a single message")
     print("  - GET /health - Health check")
-    app.run(host='0.0.0.0', port=5000, debug=False)
-
+    app.run(host=args.host, port=args.port, debug=False)
